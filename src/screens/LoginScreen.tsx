@@ -14,7 +14,6 @@ export const LoginScreen = () => {
 		setIsAuthenticating(true);
 		try {
 			const token = await login({ email, password });
-			console.log(token);
 			authCtx.authenticate(token);
 		} catch (error) {
 			Alert.alert(

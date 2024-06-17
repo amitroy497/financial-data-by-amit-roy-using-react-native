@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AuthenticateTypes, CreateloginTypes } from '../constants/types';
 
-const API_KEY = 'AIzaSyBSqT2zlLYgS0ri3yGCINGKbXauG1zwMmg';
+const API_KEY = 'AIzaSyB2QHKbUn7XKyeCy1KED3YMQkpM0naD9jk';
 
 export const authenticate = async ({
 	mode,

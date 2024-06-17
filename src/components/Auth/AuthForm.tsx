@@ -9,7 +9,6 @@ export const AuthForm = ({
 	onSubmit,
 	credentialsInvalid,
 }: AuthFormTypes) => {
-	const [enteredName, setEnteredName] = useState<string>('');
 	const [enteredEmail, setEnteredEmail] = useState<string>('');
 	const [enteredConfirmEmail, setEnteredConfirmEmail] = useState<string>('');
 	const [enteredPassword, setEnteredPassword] = useState<string>('');
@@ -25,9 +24,6 @@ export const AuthForm = ({
 
 	const updateInputValueHandler = (inputType: any, enteredValue: string) => {
 		switch (inputType) {
-			case 'name':
-				setEnteredName(enteredValue);
-				break;
 			case 'email':
 				setEnteredEmail(enteredValue);
 				break;
@@ -54,11 +50,6 @@ export const AuthForm = ({
 
 	return (
 		<View style={styles.container}>
-			<Input
-				placeholder='Enter your name'
-				onUpdateValue={updateInputValueHandler.bind(this, 'name')}
-				value={enteredName}
-			/>
 			<Input
 				placeholder='Enter your email address'
 				onUpdateValue={updateInputValueHandler.bind(this, 'email')}
@@ -102,11 +93,7 @@ export const AuthForm = ({
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: Colors.grey200,
 		alignItems: 'center',
-		borderTopLeftRadius: 25,
-		borderTopRightRadius: 25,
 	},
 	buttons: {
 		marginTop: 12,

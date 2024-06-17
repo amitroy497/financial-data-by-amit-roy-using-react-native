@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { AuthForm } from './AuthForm';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Colors } from '../../constants';
@@ -63,16 +63,18 @@ export const AuthContent = ({ isLogin, onAuthenticate }: AuthContentTypes) => {
 			style={styles.container}
 		>
 			<Logo />
-			<AuthForm
-				isLogin={isLogin}
-				onSubmit={submitHandler}
-				credentialsInvalid={credentialsInvalid}
-			/>
-			{/* <View style={styles.buttons}>
-				<FlatButton onPress={switchAuthModeHandler}>
-					{isLogin ? 'Create a new user' : 'Log in instead'}
-				</FlatButton>
-			</View> */}
+			<ScrollView style={styles.form}>
+				<AuthForm
+					isLogin={isLogin}
+					onSubmit={submitHandler}
+					credentialsInvalid={credentialsInvalid}
+				/>
+				<View style={styles.buttons}>
+					<FlatButton onPress={switchAuthModeHandler}>
+						{isLogin ? 'Create a new user' : 'Log in instead'}
+					</FlatButton>
+				</View>
+			</ScrollView>
 		</LinearGradient>
 	);
 };
@@ -80,6 +82,13 @@ export const AuthContent = ({ isLogin, onAuthenticate }: AuthContentTypes) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+	},
+	form: {
+		flex: 1,
+		backgroundColor: Colors.grey200,
+		// alignItems: 'center',
+		borderTopLeftRadius: 25,
+		borderTopRightRadius: 25,
 	},
 	buttons: {
 		marginTop: 8,
