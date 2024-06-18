@@ -12,8 +12,8 @@ export const SignupScreen = () => {
 	const signupHandler = async ({ email, password }: CreateloginTypes) => {
 		setIsAuthenticating(true);
 		try {
-			const token = await createUser({ email, password });
-			authCtx.authenticate(token);
+			const { id, token } = await createUser({ email, password });
+			authCtx.authenticate(id, token);
 		} catch (error) {
 			Alert.alert(
 				'Authentication failed!',

@@ -1,15 +1,15 @@
+import { useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { AuthForm } from './AuthForm';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 import { Colors } from '../../constants';
 import { FlatButton, Logo } from '../UI';
-import { useState } from 'react';
 import {
 	AuthContentTypes,
 	CredentialBooleanType,
 	CredentialType,
 } from '../../constants/types';
-import { useNavigation } from '@react-navigation/native';
 
 export const AuthContent = ({ isLogin, onAuthenticate }: AuthContentTypes) => {
 	const navigation = useNavigation();
@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
 	form: {
 		flex: 1,
 		backgroundColor: Colors.grey200,
-		// alignItems: 'center',
 		borderTopLeftRadius: 25,
 		borderTopRightRadius: 25,
 	},

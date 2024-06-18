@@ -41,6 +41,11 @@ export type CredentialType = {
 	confirmPassword: string;
 };
 
+export type ErrorOverlayTypes = {
+	message: string;
+	onConfirm: () => void;
+};
+
 export type IconButtonType = {
 	icon: any;
 	color: string;
@@ -59,4 +64,10 @@ export type InputTypes = {
 
 export type LoadingOverlayTypes = {
 	message: string;
+};
+
+export type MpinLoginTypes = {
+	id: string;
+	loginid: string;
+	mpin: string;
 };

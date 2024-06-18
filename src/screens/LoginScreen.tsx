@@ -2,19 +2,30 @@ import { useContext, useState } from 'react';
 import { AuthContent, LoadingOverlay } from '../components';
 import { AuthContext } from '../store';
 import { Alert } from 'react-native';
-import { login } from '../utils';
+import { fetchLoginDetails, login } from '../utils';
 import { CreateloginTypes } from '../constants/types';
+import { useNavigation } from '@react-navigation/native';
 
 export const LoginScreen = () => {
 	const [isAuthenticating, setIsAuthenticating] = useState<boolean>(false);
 
 	const authCtx = useContext(AuthContext);
 
+	const navigation = useNavigation();
+
 	const loginHandler = async ({ email, password }: CreateloginTypes) => {
 		setIsAuthenticating(true);
 		try {
-			const token = await login({ email, password });
-			authCtx.authenticate(token);
+			const { id, token } = await login({ email, password });
+			authCtx.authenticate(id, token);
+			const loginDetails = await fetchLoginDetails();
+			const isPresent = !!loginDetails?.find((log) => log?.loginid === id);
+
+			if (isPresent) {
+				navigation.navigate('Dashboard' as never);
+			} else {
+				navigation.navigate('Mpin' as never);
+			}
 		} catch (error) {
 			Alert.alert(
 				'Authentication failed!',
