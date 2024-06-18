@@ -38,7 +38,7 @@ export const MpinScreen = () => {
 		setIsSubmitting(true);
 		if (authCtx.time === 'subsequent') {
 			if (loginMpin === enteredPin) {
-				navigation.navigate('Dashboard' as never);
+				navigation.navigate('Drawer' as never);
 			} else {
 				setIsSubmitting(false);
 				setError('Wrong mpin - please try again later!');
@@ -51,7 +51,7 @@ export const MpinScreen = () => {
 						loginid: authCtx.id,
 					};
 					await storeLoginDetails(loginDetails);
-					navigation.navigate('Dashboard' as never);
+					navigation.navigate('Drawer' as never);
 				}
 			} catch (error) {
 				setError('Could not save data - please try again later!');
@@ -81,7 +81,7 @@ export const MpinScreen = () => {
 
 	return (
 		<LinearGradient
-			colors={[Colors.pink700, Colors.blue700]}
+			colors={[Colors.pink700, Colors.blue500]}
 			style={styles.container}
 		>
 			<Logo />

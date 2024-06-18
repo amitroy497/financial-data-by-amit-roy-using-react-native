@@ -59,7 +59,7 @@ export const AuthContent = ({ isLogin, onAuthenticate }: AuthContentTypes) => {
 
 	return (
 		<LinearGradient
-			colors={[Colors.pink700, Colors.blue700]}
+			colors={[Colors.pink700, Colors.blue500]}
 			style={styles.container}
 		>
 			<Logo />

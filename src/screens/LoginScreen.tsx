@@ -22,7 +22,7 @@ export const LoginScreen = () => {
 			const isPresent = !!loginDetails?.find((log) => log?.loginid === id);
 
 			if (isPresent) {
-				navigation.navigate('Dashboard' as never);
+				navigation.navigate('Drawer' as never);
 			} else {
 				navigation.navigate('Mpin' as never);
 			}
