@@ -4,10 +4,14 @@ export const BalanceSheetForm = () => {
 	return (
 		<ScrollView>
 			<View>
-				<Text>Assets</Text>
+				<View>
+					<Text>Assets</Text>
+				</View>
 			</View>
 			<View>
-				<Text>Liabilities</Text>
+				<View>
+					<Text>Liabilities</Text>
+				</View>
 			</View>
 		</ScrollView>
 	);

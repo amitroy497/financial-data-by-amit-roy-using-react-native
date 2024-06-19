@@ -3,11 +3,18 @@ import { useNavigation } from '@react-navigation/native';
 import { Tile } from '../UI';
 import { Colors } from '../../constants';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { fetchBalanceSheetDetails } from '../../utils/balanceSheetApi';
 
 const WelcomeImage = require('../../images/db-welcome.png');
 
 export const WelcomeTile = () => {
 	const navigation = useNavigation();
+
+	const handlePress = async () => {
+		const data = await fetchBalanceSheetDetails();
+		console.log('Mahadev', data);
+		navigation.navigate('Balancesheet' as never);
+	};
 
 	return (
 		<Tile image={WelcomeImage}>
@@ -23,7 +30,7 @@ export const WelcomeTile = () => {
 				</Text>
 			</View>
 			<Pressable
-				onPress={() => navigation.navigate('Balancesheet' as never)}
+				onPress={handlePress}
 				android_ripple={{ color: Colors.white }}
 				style={styles.renderBalanceSheet}
 			>
