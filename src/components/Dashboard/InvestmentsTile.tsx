@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
 		marginHorizontal: 6,
 	},
 	iconContainer: {
-		flex: 1,
 		alignItems: 'center',
 	},
 	quickOverviewContainer: {

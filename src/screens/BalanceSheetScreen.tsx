@@ -1,5 +1,5 @@
-import { Text } from 'react-native';
+import { ViewBalanceSheet } from './BalanceSheet/ViewBalanceSheet';
 
 export const BalanceSheetScreen = () => {
-	return <Text>BalanceSheetScreen</Text>;
+	return <ViewBalanceSheet />;
 };

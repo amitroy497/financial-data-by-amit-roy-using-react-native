@@ -1,5 +1,4 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-// import { GiExpense } from 'react-icons/gi';
 import { Tile } from '../UI';
 import { Colors } from '../../constants';
 import { AntDesign } from '@expo/vector-icons';
@@ -54,7 +53,6 @@ const styles = StyleSheet.create({
 		marginHorizontal: 6,
 	},
 	iconContainer: {
-		flex: 1,
 		alignItems: 'center',
 	},
 	expensesOverviewContainer: {
