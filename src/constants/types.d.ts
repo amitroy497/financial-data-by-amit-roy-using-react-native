@@ -71,3 +71,8 @@ export type MpinLoginTypes = {
 	loginid: string;
 	mpin: string;
 };
+
+export type TileTypes = {
+	children: ReactNode;
+	image: any;
+};

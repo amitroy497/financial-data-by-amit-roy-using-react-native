@@ -1,13 +1,16 @@
 export const Colors = {
 	white: '#fff',
 	grey200: '#ededed',
+	grey400: '#bfbfbd',
 	grey700: '#828282',
 	pink700: '#94009f',
 	blue500: '#1d3181',
 	blue700: '#3a2f5c',
+	yellow700: '#f5b60a',
 	violet500: '#a980e1',
 	violet600: '#836fe0',
 	violet700: '#7067df',
 	error50: '#fcc4e4',
 	error500: '#9b095c',
+	hsl: 'hsla(0,0%,100%,.1)',
 };

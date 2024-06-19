@@ -3,13 +3,19 @@ import { useContext } from 'react';
 import {
 	BalanceSheetScreen,
 	DashboardScreen,
+	ExpensesScreen,
 	InvestmentsScreen,
-	MpinScreen,
+	SavingsScreen,
 } from '../../screens';
 import { AuthContext } from '../../store';
 import { IconButton } from '../UI';
 import { Colors } from '../../constants';
-import { Ionicons } from '@expo/vector-icons';
+import {
+	AntDesign,
+	Ionicons,
+	MaterialCommunityIcons,
+	MaterialIcons,
+} from '@expo/vector-icons';
 
 export const AuthenticatedDrawer = () => {
 	const Drawer = createDrawerNavigator();
@@ -36,6 +42,7 @@ export const AuthenticatedDrawer = () => {
 				drawerActiveBackgroundColor: 'transparent',
 				drawerActiveTintColor: Colors.white,
 				drawerInactiveTintColor: Colors.violet600,
+				drawerLabelStyle: { fontSize: 24, marginVertical: 10 },
 			}}
 		>
 			<Drawer.Screen
@@ -54,7 +61,11 @@ export const AuthenticatedDrawer = () => {
 				options={{
 					drawerLabel: 'Balancesheet',
 					drawerIcon: ({ color, size }) => (
-						<Ionicons name='cash' color={color} size={size} />
+						<MaterialCommunityIcons
+							name='scale-balance'
+							color={color}
+							size={size}
+						/>
 					),
 				}}
 			/>
@@ -64,7 +75,31 @@ export const AuthenticatedDrawer = () => {
 				options={{
 					drawerLabel: 'Investments',
 					drawerIcon: ({ color, size }) => (
-						<Ionicons name='save' color={color} size={size} />
+						<MaterialCommunityIcons
+							name='cash-multiple'
+							color={color}
+							size={size}
+						/>
+					),
+				}}
+			/>
+			<Drawer.Screen
+				name='Savings'
+				component={SavingsScreen}
+				options={{
+					drawerLabel: 'Savings',
+					drawerIcon: ({ color, size }) => (
+						<MaterialIcons name='savings' color={color} size={size} />
+					),
+				}}
+			/>
+			<Drawer.Screen
+				name='Expenses'
+				component={ExpensesScreen}
+				options={{
+					drawerLabel: 'Expenses',
+					drawerIcon: ({ color, size }) => (
+						<AntDesign name='rocket1' color={color} size={size} />
 					),
 				}}
 			/>
