@@ -1,133 +1,43 @@
 export const balanceSheetMock = {
-	assets: {
-		mainTitle: 'Assets',
-		mainValue: '2000',
-		mainDetails: [
-			{
-				headerTitle: 'Current Assets',
-				headerValue: '1000',
-				headerDetails: [
-					{
-						subHeaderTitle: 'Cash',
-						subHeaderValue: '300',
-						subDetails: [
-							{
-								label: 'Axis',
-								value: '100',
-							},
-							{
-								label: 'AU',
-								value: '100',
-							},
-							{
-								label: 'FI',
-								value: '100',
-							},
-						],
-					},
-					{
-						subHeaderTitle: 'Recurring Deposits',
-						subHeaderValue: '300',
-						subDetails: [
-							{
-								label: 'AU',
-								value: '100',
-							},
-							{
-								label: 'FI',
-								value: '100',
-							},
-							{
-								label: 'PNB',
-								value: '100',
-							},
-						],
-					},
-					{
-						subHeaderTitle: 'Gold ETF',
-						subHeaderValue: '300',
-					},
-					{
-						subHeaderTitle: 'Shoonya ETF',
-						subHeaderValue: '300',
-					},
-				],
-			},
-			{
-				headerTitle: 'Long Term Assets',
-				headerValue: '1000',
-				headerDetails: [
-					{
-						subHeaderTitle: 'Fixed Deposits',
-						subHeaderValue: '300',
-						subDetails: [
-							{
-								label: 'AU',
-								value: '100',
-							},
-						],
-					},
-					{
-						subHeaderTitle: 'Mutual Funds',
-						subHeaderValue: '300',
-					},
-					{
-						subHeaderTitle: 'Public Provident Fund',
-						subHeaderValue: '300',
-					},
-					{
-						subHeaderTitle: 'National Pension Scheme',
-						subHeaderValue: '300',
-					},
-				],
-			},
-		],
-	},
-
-	liabilities: {
-		mainTitle: 'liabilities',
-		mainValue: '2000',
-		mainDetails: [
-			{
-				headerTitle: 'Current Liabilities',
-				headerValue: '1000',
-				headerDetails: [
-					{
-						subHeaderTitle: 'Credit Cards',
-						subHeaderValue: '300',
-						subDetails: [
-							{
-								label: 'CITI',
-								value: '100',
-							},
-							{
-								label: 'SBI',
-								value: '100',
-							},
-						],
-					},
-				],
-			},
-			{
-				headerTitle: 'Long Term Liabilities',
-				headerValue: '1000',
-				headerDetails: [
-					{
-						subHeaderTitle: 'Loans',
-						subHeaderValue: '300',
-						subDetails: [
-							{
-								label: 'AXIS PL',
-								value: '100',
-							},
-							{
-								label: 'CITI HIS',
-								value: '100',
-							},
-						],
-					},
-				],
-			},
-		],
-	},
+	assets: '100.00',
+	currentAssets: '100.00',
+	cash: '100.00',
+	axisBank: '100.00',
+	auBank: '100.00',
+	fiBank: '100.00',
+	idfcBank: '100.00',
+	kotakBank: '100.00',
+	pnbBank: '100.00',
+	sbiRmccBank: '100.00',
+	sbiUnitechBank: '100.00',
+	ucoBank: '100.00',
+	indianBank: '100.00',
+	recurringDeposits: '100.00',
+	auRD: '100.00',
+	fiRD: '100.00',
+	idfcRD: '100.00',
+	kotakRD: '100.00',
+	pnbRD: '100.00',
+	sbiRD: '100.00',
+	goldETF: '100.00',
+	shoonyaETF: '100.00',
+	longTermAssets: '100.00',
+	fixedDeposits: '100.00',
+	auFD: '100.00',
+	mutualFunds: '100.00',
+	ppf: '100.00',
+	nps: '100.00',
+	frsb: '100.00',
+	tBills: '100.00',
+	sgb: '100.00',
+	liabilities: '100.00',
+	currentLiabilities: '100.00',
+	creditCards: '100.00',
+	citiCard: '100.00',
+	sbiCard: '100.00',
+	longTermLiabilities: '100.00',
+	loans: '100.00',
+	axisPl: '100.00',
+	mom: '100.00',
+	citiHis: '100.00',
 };

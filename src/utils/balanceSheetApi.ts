@@ -19,8 +19,7 @@ export const fetchBalanceSheetDetails = async () => {
 	for (const key in response?.data) {
 		const sheetDataObj = {
 			id: key,
-			assets: response?.data[key].assets,
-			liabilities: response?.data[key].liabilities,
+			data: response?.data[key],
 		};
 		sheetData.push(sheetDataObj);
 	}

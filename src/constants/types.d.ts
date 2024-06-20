@@ -1,5 +1,18 @@
 import { ReactNode } from 'react';
 
+export type AssetsLiabilitiesTypes = {
+	label: string;
+	location: string;
+	value: string;
+};
+
+export type AssetLiabilitiesHeaderTypes = {
+	label: string;
+	location: string;
+	value: string;
+	textColor: string;
+};
+
 export type AuthContentTypes = {
 	isLogin?: boolean;
 	onAuthenticate: ({ email: string, password: string }) => void;
@@ -75,4 +88,12 @@ export type MpinLoginTypes = {
 export type TileTypes = {
 	children: ReactNode;
 	image: any;
+};
+
+export type ViewBalanceSheetTypes = {
+	route: {
+		key: string;
+		name: string;
+		params: any;
+	};
 };

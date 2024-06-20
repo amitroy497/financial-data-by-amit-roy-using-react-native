@@ -1,8 +1,16 @@
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../constants';
+import {
+	AssetLiabilitiesDetails,
+	AssetLiabilitiesHeader,
+	AssetsLiabilities,
+	AssetsLiabilitiesSubHeader,
+} from '../../components';
+import { ViewBalanceSheetTypes } from '../../constants/types';
 
-export const UpdateBalanceSheet = () => {
+export const UpdateBalanceSheet = ({ route }: ViewBalanceSheetTypes) => {
 	const { balanceSheet: balanceSheetData } = useSelector(
 		(s: any) => s.balanceSheet
 	);
@@ -11,114 +19,244 @@ export const UpdateBalanceSheet = () => {
 		<ScrollView style={styles.rootContainer}>
 			{balanceSheetData?.map((sheet: any, index: number) => (
 				<View style={styles.container} key={index}>
-					<View>
-						<View style={[styles.flexContainer, styles.assetMainContainer]}>
-							<Text style={[styles.text, styles.mainContainerText]}>
-								{sheet?.assets?.mainTitle}
-							</Text>
-							<Text style={[styles.text, styles.mainContainerText]}>
-								₹{sheet?.assets?.mainValue}
-							</Text>
+					<AssetsLiabilities
+						label='Assets'
+						value={sheet?.data?.assets}
+						location={route?.name}
+					/>
+					<View style={styles.mainDetailsContainer}>
+						<AssetLiabilitiesHeader
+							label='Current Assets'
+							value={sheet?.data?.currentAssets}
+							textColor={Colors.green700}
+							location={route?.name}
+						/>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Cash'
+								value={sheet?.data?.cash}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Axis Bank'
+								value={sheet?.data?.axisBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='AU Bank'
+								value={sheet?.data?.auBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='FI Bank'
+								value={sheet?.data?.fiBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='IDFC First Bank'
+								value={sheet?.data?.idfcBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Kotak Mahindra Bank'
+								value={sheet?.data?.kotakBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Punjab National Bank'
+								value={sheet?.data?.pnbBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='State Bank of India RIMS'
+								value={sheet?.data?.sbiRmccBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='State Bank of India Unitech'
+								value={sheet?.data?.sbiUnitechBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='UCO Bank'
+								value={sheet?.data?.ucoBank}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Indian Bank'
+								value={sheet?.data?.indianBank}
+								location={route?.name}
+							/>
 						</View>
-						{sheet?.assets?.mainDetails.map(
-							(mainDetailsItem: any, j: number) => (
-								<View style={styles.mainDetailsContainer} key={j}>
-									<View style={[styles.flexContainer, styles.headerContainer]}>
-										<Text style={[styles.text, styles.assetsHeaderText]}>
-											{mainDetailsItem?.headerTitle}
-										</Text>
-										<Text style={[styles.text, styles.assetsHeaderText]}>
-											₹{mainDetailsItem?.headerValue}
-										</Text>
-									</View>
-									{mainDetailsItem?.headerDetails?.map(
-										(headerDetailsItem: any, k: number) => (
-											<View style={styles.headerDetailsContainer} key={k}>
-												<View
-													style={[
-														styles.flexContainer,
-														styles.subHeaderContainer,
-													]}
-												>
-													<Text style={[styles.text, styles.subHeaderText]}>
-														{headerDetailsItem?.subHeaderTitle}
-													</Text>
-													<Text style={[styles.text, styles.subHeaderText]}>
-														₹{headerDetailsItem?.subHeaderValue}
-													</Text>
-												</View>
-												{headerDetailsItem?.subDetails?.map(
-													(subDetailsItem: any, l: number) => (
-														<View style={styles.flexContainer} key={l}>
-															<Text style={[styles.text]}>
-																{subDetailsItem?.label}
-															</Text>
-															<TextInput />
-															{/* <Text>₹{subDetailsItem?.value}</Text> */}
-														</View>
-													)
-												)}
-											</View>
-										)
-									)}
-								</View>
-							)
-						)}
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Recurring Deposits'
+								value={sheet?.data?.recurringDeposits}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='AU Bank RD'
+								value={sheet?.data?.auRD}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='FI Bank RD'
+								value={sheet?.data?.fiRD}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='IDFC First Bank RD'
+								value={sheet?.data?.idfcRD}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Kotak Mahindra Bank RD'
+								value={sheet?.data?.kotakRD}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Punjab National Bank RD'
+								value={sheet?.data?.kotakRD}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='State Bank of India RD'
+								value={sheet?.data?.sbiRD}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Gold ETFs'
+								value={sheet?.data?.goldETF}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Shoonya ETFs'
+								value={sheet?.data?.shoonyaETF}
+								location={route?.name}
+							/>
+						</View>
+						<AssetLiabilitiesHeader
+							label='Long Term Assets'
+							value={sheet?.data?.longTermAssets}
+							textColor={Colors.green700}
+							location={route?.name}
+						/>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Fixed Deposits'
+								value={sheet?.data?.fixedDeposits}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='AU Bank FD'
+								value={sheet?.data?.auFD}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Mutual Funds'
+								value={sheet?.data?.mutualFunds}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Public Provident Fund'
+								value={sheet?.data?.ppf}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='National Pension Scheme'
+								value={sheet?.data?.nps}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Floating Rate Saving Bonds'
+								value={sheet?.data?.frsb}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Treasury Bills'
+								value={sheet?.data?.tBills}
+								location={route?.name}
+							/>
+						</View>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Sovereign Gold Bonds'
+								value={sheet?.data?.sgb}
+								location={route?.name}
+							/>
+						</View>
 					</View>
-					<View>
-						<View
-							style={[styles.flexContainer, styles.liabilitiesMainContainer]}
-						>
-							<Text style={[styles.text, styles.mainContainerText]}>
-								{sheet?.liabilities?.mainTitle}
-							</Text>
-							<Text style={[styles.text, styles.mainContainerText]}>
-								₹{sheet?.liabilities?.mainValue}
-							</Text>
+					<AssetsLiabilities
+						label='Liabilities'
+						value={sheet?.data?.liabilities}
+						location={route?.name}
+					/>
+					<View style={styles.mainDetailsContainer}>
+						<AssetLiabilitiesHeader
+							label='Current Liabilities'
+							value={sheet?.data?.currentLiabilities}
+							textColor={Colors.red400}
+							location={route?.name}
+						/>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Credit Cards'
+								value={sheet?.data?.creditCards}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Citi Card'
+								value={sheet?.data?.citiCard}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='SBI Card'
+								value={sheet?.data?.sbiCard}
+								location={route?.name}
+							/>
 						</View>
-						{sheet?.liabilities?.mainDetails.map(
-							(mainDetailsItem: any, j: number) => (
-								<View style={styles.mainDetailsContainer} key={j}>
-									<View style={[styles.flexContainer, styles.headerContainer]}>
-										<Text style={[styles.text, styles.liabilitiesHeaderText]}>
-											{mainDetailsItem?.headerTitle}
-										</Text>
-										<Text style={[styles.text, styles.liabilitiesHeaderText]}>
-											₹{mainDetailsItem?.headerValue}
-										</Text>
-									</View>
-									{mainDetailsItem?.headerDetails?.map(
-										(headerDetailsItem: any, k: number) => (
-											<View style={styles.headerDetailsContainer} key={k}>
-												<View
-													style={[
-														styles.flexContainer,
-														styles.subHeaderContainer,
-													]}
-												>
-													<Text style={[styles.text, styles.subHeaderText]}>
-														{headerDetailsItem?.subHeaderTitle}
-													</Text>
-													<Text style={[styles.text, styles.subHeaderText]}>
-														₹{headerDetailsItem?.subHeaderValue}
-													</Text>
-												</View>
-												{headerDetailsItem?.subDetails?.map(
-													(subDetailsItem: any, l: number) => (
-														<View style={styles.flexContainer} key={l}>
-															<Text style={[styles.text]}>
-																{subDetailsItem?.label}
-															</Text>
-															<Text>₹{subDetailsItem?.value}</Text>
-														</View>
-													)
-												)}
-											</View>
-										)
-									)}
-								</View>
-							)
-						)}
+						<AssetLiabilitiesHeader
+							label='Long Term Liabilities'
+							value={sheet?.data?.longTermLiabilities}
+							textColor={Colors.red400}
+							location={route?.name}
+						/>
+						<View style={styles.subHeaderContainer}>
+							<AssetsLiabilitiesSubHeader
+								label='Loans'
+								value={sheet?.data?.loans}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Axis Bank Personal Loan'
+								value={sheet?.data?.axisPl}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Mom'
+								value={sheet?.data?.mom}
+								location={route?.name}
+							/>
+							<AssetLiabilitiesDetails
+								label='Citi Card Health Insurance'
+								value={sheet?.data?.citiHis}
+								location={route?.name}
+							/>
+						</View>
 					</View>
 				</View>
 			))}
@@ -138,46 +276,11 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		borderStyle: 'dotted',
 	},
-	flexContainer: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-	},
-	text: {
-		fontWeight: 'bold',
-		flexShrink: 1,
-	},
-	assetMainContainer: {
-		backgroundColor: Colors.green700,
-		padding: 4,
-	},
-	liabilitiesMainContainer: {
-		backgroundColor: Colors.red400,
-		padding: 4,
-	},
-	mainContainerText: {
-		color: Colors.white,
-	},
 	mainDetailsContainer: {
-		padding: 4,
-	},
-	headerContainer: {
-		marginTop: 15,
-		marginBottom: 12,
-	},
-	assetsHeaderText: {
-		color: Colors.green700,
-	},
-	liabilitiesHeaderText: {
-		color: Colors.red400,
-	},
-	headerDetailsContainer: {
-		marginVertical: 10,
+		paddingVertical: 4,
+		paddingHorizontal: 10,
 	},
 	subHeaderContainer: {
-		marginBottom: 5,
-	},
-	subHeaderText: {
-		color: '#6873e3',
+		marginBottom: 10,
 	},
 });

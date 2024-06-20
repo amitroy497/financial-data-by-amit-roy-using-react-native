@@ -1,3 +1,4 @@
+export * from './BalanceSheet';
 export * from './Button';
 export * from './FlatButton';
 export * from './LoadingOverlay';
