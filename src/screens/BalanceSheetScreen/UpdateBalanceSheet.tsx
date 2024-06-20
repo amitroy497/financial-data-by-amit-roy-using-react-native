@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Colors } from '../../constants';
 
@@ -53,7 +53,8 @@ export const UpdateBalanceSheet = () => {
 															<Text style={[styles.text]}>
 																{subDetailsItem?.label}
 															</Text>
-															<Text>₹{subDetailsItem?.value}</Text>
+															<TextInput />
+															{/* <Text>₹{subDetailsItem?.value}</Text> */}
 														</View>
 													)
 												)}

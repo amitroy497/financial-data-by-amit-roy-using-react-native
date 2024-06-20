@@ -9,16 +9,6 @@ export const ViewBalanceSheet = () => {
 		(s: any) => s.balanceSheet
 	);
 
-	// useEffect(() => {
-	// 	console.log('Hari', balanceSheetData?.id);
-	// 	balanceSheetData?.map((sheet: any) =>
-	// 		// sheet?.assets?.mainDetails.map((item: any) =>
-	// 		// 	console.log('Ganesh', item.headerTitle)
-	// 		// )
-	// 		// console.log('Hari', sheet?.id)
-	// 	);
-	// }, []);
-
 	return (
 		<ScrollView style={styles.rootContainer}>
 			{balanceSheetData?.map((sheet: any, index: number) => (

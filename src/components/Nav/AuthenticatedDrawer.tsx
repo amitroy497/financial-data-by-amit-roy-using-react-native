@@ -1,7 +1,6 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useContext } from 'react';
 import {
-	BalanceSheetScreen,
 	DashboardScreen,
 	ExpensesScreen,
 	InvestmentsScreen,
@@ -16,6 +15,7 @@ import {
 	MaterialCommunityIcons,
 	MaterialIcons,
 } from '@expo/vector-icons';
+import { BalanceSheetNavigation } from './BalanceSheetNavigation';
 
 export const AuthenticatedDrawer = () => {
 	const Drawer = createDrawerNavigator();
@@ -57,14 +57,23 @@ export const AuthenticatedDrawer = () => {
 			/>
 			<Drawer.Screen
 				name='Balancesheet'
-				component={BalanceSheetScreen}
+				component={BalanceSheetNavigation}
 				options={{
-					drawerLabel: 'Balancesheet',
+					title: 'Balance Sheet',
+					drawerLabel: 'Balance Sheet',
 					drawerIcon: ({ color, size }) => (
 						<MaterialCommunityIcons
 							name='scale-balance'
 							color={color}
 							size={size}
+						/>
+					),
+					headerRight: ({ tintColor }: any) => (
+						<IconButton
+							icon='exit'
+							color={tintColor}
+							size={24}
+							onPress={authCtx.logout}
 						/>
 					),
 				}}
@@ -73,6 +82,7 @@ export const AuthenticatedDrawer = () => {
 				name='Investments'
 				component={InvestmentsScreen}
 				options={{
+					title: 'Investments',
 					drawerLabel: 'Investments',
 					drawerIcon: ({ color, size }) => (
 						<MaterialCommunityIcons
