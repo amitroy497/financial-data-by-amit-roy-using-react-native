@@ -1,16 +1,16 @@
-export const balanceSheetMock = [
-	{
-		maintitle: 'Assets',
-		mainvalue: '2000',
-		maindetails: [
+export const balanceSheetMock = {
+	assets: {
+		mainTitle: 'Assets',
+		mainValue: '2000',
+		mainDetails: [
 			{
 				headerTitle: 'Current Assets',
 				headerValue: '1000',
-				headerdetails: [
+				headerDetails: [
 					{
-						subheadertitle: 'Cash',
-						subheadervalue: '300',
-						subdetails: [
+						subHeaderTitle: 'Cash',
+						subHeaderValue: '300',
+						subDetails: [
 							{
 								label: 'Axis',
 								value: '100',
@@ -26,9 +26,9 @@ export const balanceSheetMock = [
 						],
 					},
 					{
-						subheadertitle: 'Recurring Deposits',
-						subheadervalue: '300',
-						subdetails: [
+						subHeaderTitle: 'Recurring Deposits',
+						subHeaderValue: '300',
+						subDetails: [
 							{
 								label: 'AU',
 								value: '100',
@@ -44,23 +44,23 @@ export const balanceSheetMock = [
 						],
 					},
 					{
-						subheadertitle: 'Gold ETF',
-						subheadervalue: '300',
+						subHeaderTitle: 'Gold ETF',
+						subHeaderValue: '300',
 					},
 					{
-						subheadertitle: 'Shoonya ETF',
-						subheadervalue: '300',
+						subHeaderTitle: 'Shoonya ETF',
+						subHeaderValue: '300',
 					},
 				],
 			},
 			{
 				headerTitle: 'Long Term Assets',
 				headerValue: '1000',
-				headerdetails: [
+				headerDetails: [
 					{
-						subheadertitle: 'Fixed Deposits',
-						subheadervalue: '300',
-						subdetails: [
+						subHeaderTitle: 'Fixed Deposits',
+						subHeaderValue: '300',
+						subDetails: [
 							{
 								label: 'AU',
 								value: '100',
@@ -68,33 +68,34 @@ export const balanceSheetMock = [
 						],
 					},
 					{
-						subheadertitle: 'Mutual Funds',
-						subheadervalue: '300',
+						subHeaderTitle: 'Mutual Funds',
+						subHeaderValue: '300',
 					},
 					{
-						subheadertitle: 'Public Provident Fund',
-						subheadervalue: '300',
+						subHeaderTitle: 'Public Provident Fund',
+						subHeaderValue: '300',
 					},
 					{
-						subheadertitle: 'National Pension Scheme',
-						subheadervalue: '300',
+						subHeaderTitle: 'National Pension Scheme',
+						subHeaderValue: '300',
 					},
 				],
 			},
 		],
 	},
-	{
-		maintitle: 'liabilities',
-		mainvalue: '2000',
-		maindetails: [
+
+	liabilities: {
+		mainTitle: 'liabilities',
+		mainValue: '2000',
+		mainDetails: [
 			{
 				headerTitle: 'Current Liabilities',
 				headerValue: '1000',
-				headerdetails: [
+				headerDetails: [
 					{
-						subheadertitle: 'Credit Cards',
-						subheadervalue: '300',
-						subdetails: [
+						subHeaderTitle: 'Credit Cards',
+						subHeaderValue: '300',
+						subDetails: [
 							{
 								label: 'CITI',
 								value: '100',
@@ -110,11 +111,11 @@ export const balanceSheetMock = [
 			{
 				headerTitle: 'Long Term Liabilities',
 				headerValue: '1000',
-				headerdetails: [
+				headerDetails: [
 					{
-						subheadertitle: 'Loans',
-						subheadervalue: '300',
-						subdetails: [
+						subHeaderTitle: 'Loans',
+						subHeaderValue: '300',
+						subDetails: [
 							{
 								label: 'AXIS PL',
 								value: '100',
@@ -129,4 +130,4 @@ export const balanceSheetMock = [
 			},
 		],
 	},
-];
+};

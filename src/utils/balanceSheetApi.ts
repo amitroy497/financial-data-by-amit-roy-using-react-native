@@ -14,5 +14,22 @@ export const storeBalanceSheetDetails = async (balanceSheetData: any) => {
 
 export const fetchBalanceSheetDetails = async () => {
 	const response = await axios.get(`${BACKEND_URL}/balancesheet.json`);
-	return response?.data;
+	let sheetData = [];
+
+	for (const key in response?.data) {
+		const sheetDataObj = {
+			id: key,
+			assets: response?.data[key].assets,
+			liabilities: response?.data[key].liabilities,
+		};
+		sheetData.push(sheetDataObj);
+	}
+	return sheetData;
+};
+
+export const updateBalanceSheetDetails = (
+	id: string,
+	balanceSheetData: any
+) => {
+	return axios.put(`${BACKEND_URL}/balancesheet/${id}.json`, balanceSheetData);
 };

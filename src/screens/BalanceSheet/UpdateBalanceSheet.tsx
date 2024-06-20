@@ -1,23 +1,11 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { BalanceSheetForm } from '../../components';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
 import { Colors } from '../../constants';
 
-export const ViewBalanceSheet = () => {
+export const UpdateBalanceSheet = () => {
 	const { balanceSheet: balanceSheetData } = useSelector(
 		(s: any) => s.balanceSheet
 	);
-
-	// useEffect(() => {
-	// 	console.log('Hari', balanceSheetData?.id);
-	// 	balanceSheetData?.map((sheet: any) =>
-	// 		// sheet?.assets?.mainDetails.map((item: any) =>
-	// 		// 	console.log('Ganesh', item.headerTitle)
-	// 		// )
-	// 		// console.log('Hari', sheet?.id)
-	// 	);
-	// }, []);
 
 	return (
 		<ScrollView style={styles.rootContainer}>

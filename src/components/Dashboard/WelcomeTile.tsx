@@ -3,16 +3,30 @@ import { useNavigation } from '@react-navigation/native';
 import { Tile } from '../UI';
 import { Colors } from '../../constants';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
-import { fetchBalanceSheetDetails } from '../../utils/balanceSheetApi';
+import {
+	balanceSheetMock,
+	fetchBalanceSheetDetails,
+	storeBalanceSheetDetails,
+} from '../../utils';
+import { useDispatch } from 'react-redux';
+import { balanceSheetActions } from '../../store';
 
 const WelcomeImage = require('../../images/db-welcome.png');
 
 export const WelcomeTile = () => {
 	const navigation = useNavigation();
 
+	const dispatch = useDispatch();
+
 	const handlePress = async () => {
-		const data = await fetchBalanceSheetDetails();
-		console.log('Mahadev', data);
+		// const id = await storeBalanceSheetDetails(balanceSheetMock);
+		// console.log('Mahadev', id);
+
+		const balanceSheetData = await fetchBalanceSheetDetails();
+		dispatch(
+			balanceSheetActions.setBalanceSheetDetails(balanceSheetData as never)
+		);
+		// console.log('Mahadev', balanceSheetData);
 		navigation.navigate('Balancesheet' as never);
 	};
 
