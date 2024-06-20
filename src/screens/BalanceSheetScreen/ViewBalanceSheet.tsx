@@ -7,6 +7,7 @@ import {
 	AssetLiabilitiesHeader,
 	AssetsLiabilities,
 	AssetsLiabilitiesSubHeader,
+	BalanceSheetWrapper,
 } from '../../components';
 import { ViewBalanceSheetTypes } from '../../constants/types';
 
@@ -14,10 +15,6 @@ export const ViewBalanceSheet = ({ route }: ViewBalanceSheetTypes) => {
 	const { balanceSheet: balanceSheetData } = useSelector(
 		(s: any) => s.balanceSheet
 	);
-
-	// useEffect(() => {
-	// 	balanceSheetData?.map((item: any) => console.log('HariHara', item?.data));
-	// }, []);
 
 	return (
 		<ScrollView style={styles.rootContainer}>
