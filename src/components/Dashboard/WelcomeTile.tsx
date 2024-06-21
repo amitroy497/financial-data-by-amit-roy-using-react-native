@@ -1,14 +1,10 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useDispatch } from 'react-redux';
 import { Tile } from '../UI';
 import { Colors } from '../../constants';
-import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
-import {
-	balanceSheetMock,
-	fetchBalanceSheetDetails,
-	storeBalanceSheetDetails,
-} from '../../utils';
-import { useDispatch } from 'react-redux';
+import { fetchBalanceSheetDetails } from '../../utils';
 import { balanceSheetActions } from '../../store';
 
 const WelcomeImage = require('../../images/db-welcome.png');
@@ -19,14 +15,10 @@ export const WelcomeTile = () => {
 	const dispatch = useDispatch();
 
 	const handlePress = async () => {
-		// const id = await storeBalanceSheetDetails(balanceSheetMock);
-		// console.log('Mahadev', id);
-
 		const balanceSheetData = await fetchBalanceSheetDetails();
 		dispatch(
 			balanceSheetActions.setBalanceSheetDetails(balanceSheetData as never)
 		);
-		// console.log('Mahadev', balanceSheetData);
 		navigation.navigate('Balancesheet' as never);
 	};
 

@@ -14,14 +14,14 @@ export const storeBalanceSheetDetails = async (balanceSheetData: any) => {
 
 export const fetchBalanceSheetDetails = async () => {
 	const response = await axios.get(`${BACKEND_URL}/balancesheet.json`);
-	let sheetData = [];
+	let sheetData = {};
 
 	for (const key in response?.data) {
 		const sheetDataObj = {
 			id: key,
 			data: response?.data[key],
 		};
-		sheetData.push(sheetDataObj);
+		sheetData = sheetDataObj;
 	}
 	return sheetData;
 };

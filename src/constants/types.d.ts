@@ -2,7 +2,9 @@ import { ReactNode } from 'react';
 
 export type AssetsLiabilitiesTypes = {
 	label: string;
-	location: string;
+	location?: string;
+	editable?: boolean;
+	onChangeText?: any;
 	value: string;
 };
 
@@ -33,6 +35,10 @@ export type AuthenticateTypes = {
 export type ButtonTypes = {
 	children: ReactNode;
 	onPress: () => void;
+	icons?: string;
+	name?: any;
+	color?: string;
+	size?: number;
 };
 
 export type CreateloginTypes = {
@@ -88,12 +94,4 @@ export type MpinLoginTypes = {
 export type TileTypes = {
 	children: ReactNode;
 	image: any;
-};
-
-export type ViewBalanceSheetTypes = {
-	route: {
-		key: string;
-		name: string;
-		params: any;
-	};
 };

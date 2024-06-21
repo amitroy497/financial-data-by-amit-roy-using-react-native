@@ -1,6 +1,12 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useContext } from 'react';
 import {
+	AntDesign,
+	Ionicons,
+	MaterialCommunityIcons,
+	MaterialIcons,
+} from '@expo/vector-icons';
+import {
 	DashboardScreen,
 	ExpensesScreen,
 	InvestmentsScreen,
@@ -9,12 +15,6 @@ import {
 import { AuthContext } from '../../store';
 import { IconButton } from '../UI';
 import { Colors } from '../../constants';
-import {
-	AntDesign,
-	Ionicons,
-	MaterialCommunityIcons,
-	MaterialIcons,
-} from '@expo/vector-icons';
 import { BalanceSheetNavigation } from './BalanceSheetNavigation';
 
 export const AuthenticatedDrawer = () => {

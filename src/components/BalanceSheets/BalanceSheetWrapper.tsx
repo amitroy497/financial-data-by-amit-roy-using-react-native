@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { BalanceSheetContainer } from './BalanceSheetContainer';
@@ -8,19 +7,12 @@ export const BalanceSheetWrapper = ({ location }: { location: string }) => {
 		(s: any) => s.balanceSheet
 	);
 
-	const [defaultValue, setDefaultValue] = useState();
-
-	useEffect(() => {
-		balanceSheetData?.map((item: any) => setDefaultValue(item?.data));
-	}, []);
-
-	console.log('parvatiMaa', defaultValue);
-
 	return (
 		<ScrollView style={styles.rootContainer}>
 			<View style={styles.container}>
 				<BalanceSheetContainer
-					defaultValue={defaultValue}
+					defaultValue={balanceSheetData?.data}
+					updateId={balanceSheetData?.id}
 					location={location}
 				/>
 			</View>

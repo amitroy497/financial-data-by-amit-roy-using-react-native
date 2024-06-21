@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	balanceSheet: [],
+	balanceSheet: {
+		id: '',
+		data: {},
+	},
 };
 const balanceSheetSlice = createSlice({
 	name: 'balanceSheet',

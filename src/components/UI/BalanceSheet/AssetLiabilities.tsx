@@ -2,11 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../../constants';
 import { AssetsLiabilitiesTypes } from '../../../constants/types';
 
-export const AssetsLiabilities = ({
-	label,
-	location,
-	value,
-}: AssetsLiabilitiesTypes) => {
+export const AssetsLiabilities = ({ label, value }: AssetsLiabilitiesTypes) => {
 	return (
 		<View
 			style={[

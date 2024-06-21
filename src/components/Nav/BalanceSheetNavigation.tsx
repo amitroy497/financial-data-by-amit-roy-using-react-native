@@ -22,7 +22,7 @@ export const BalanceSheetNavigation = () => {
 					title: 'View Balance Sheet',
 					tabBarLabel: 'View',
 					tabBarIcon: ({ color, size }) => (
-						<MaterialIcons name='preview' size={24} color={color} />
+						<MaterialIcons name='preview' size={size} color={color} />
 					),
 				}}
 			/>
@@ -33,7 +33,7 @@ export const BalanceSheetNavigation = () => {
 					title: 'Update Balance Sheet',
 					tabBarLabel: 'Update',
 					tabBarIcon: ({ color, size }) => (
-						<MaterialIcons name='update' size={24} color={color} />
+						<MaterialIcons name='update' size={size} color={color} />
 					),
 				}}
 			/>
