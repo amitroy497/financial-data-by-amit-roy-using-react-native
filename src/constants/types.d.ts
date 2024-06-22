@@ -109,3 +109,8 @@ export type Tile3Types = {
 	investedValue: string;
 	marketValue: string;
 };
+
+export type Tile4Types = {
+	investedValue: string;
+	marketValue: string;
+};
