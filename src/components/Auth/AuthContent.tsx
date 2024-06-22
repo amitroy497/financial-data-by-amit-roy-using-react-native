@@ -3,7 +3,7 @@ import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 import { AuthForm } from './AuthForm';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import { Colors } from '../../constants';
+import { AllNavigationName, Colors } from '../../constants';
 import { FlatButton, Logo } from '../UI';
 import {
 	AuthContentTypes,
@@ -24,9 +24,9 @@ export const AuthContent = ({ isLogin, onAuthenticate }: AuthContentTypes) => {
 
 	const switchAuthModeHandler = () => {
 		if (isLogin) {
-			return navigation.navigate('Signup' as never);
+			return navigation.navigate(AllNavigationName.signup as never);
 		}
-		return navigation.navigate('Login' as never);
+		return navigation.navigate(AllNavigationName.login as never);
 	};
 
 	const submitHandler = (credentials: CredentialType) => {

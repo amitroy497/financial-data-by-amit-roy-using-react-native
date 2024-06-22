@@ -1,42 +1,33 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Colors } from '../../../constants';
-import { UpdateInvestments, ViewInvestments } from '../../../screens';
-import { MaterialIcons } from '@expo/vector-icons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+	InvestmentsScreen,
+	MutualFundScreen,
+	PPFScreen,
+} from '../../../screens';
+import { AllNavigationName } from '../../../constants';
+import { InvestmentsNavigationTabs } from './InvestmentsNavigationTabs';
 
 export const InvestmentsNavigation = () => {
-	const BottomTabs = createBottomTabNavigator();
-
+	const Stack = createNativeStackNavigator();
 	return (
-		<BottomTabs.Navigator
+		<Stack.Navigator
 			screenOptions={{
 				headerShown: false,
-				tabBarStyle: { backgroundColor: Colors.blue700 },
-				tabBarActiveTintColor: Colors.white,
-				tabBarInactiveTintColor: Colors.violet600,
 			}}
 		>
-			<BottomTabs.Screen
-				name='ViewInvestments'
-				component={ViewInvestments}
-				options={{
-					title: 'View Balance Sheet',
-					tabBarLabel: 'View',
-					tabBarIcon: ({ color, size }) => (
-						<MaterialIcons name='preview' size={size} color={color} />
-					),
-				}}
+			<Stack.Screen
+				name={AllNavigationName.allInvestments}
+				component={InvestmentsScreen}
 			/>
-			<BottomTabs.Screen
-				name='UpdateInvestments'
-				component={UpdateInvestments}
-				options={{
-					title: 'Update Balance Sheet',
-					tabBarLabel: 'Update',
-					tabBarIcon: ({ color, size }) => (
-						<MaterialIcons name='update' size={size} color={color} />
-					),
-				}}
+			<Stack.Screen
+				name={AllNavigationName.mutualFunds}
+				component={MutualFundScreen}
 			/>
-		</BottomTabs.Navigator>
+			<Stack.Screen name={AllNavigationName.ppf} component={PPFScreen} />
+			<Stack.Screen
+				name={AllNavigationName.investMentsNavigationTab}
+				component={InvestmentsNavigationTabs}
+			/>
+		</Stack.Navigator>
 	);
 };

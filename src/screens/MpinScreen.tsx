@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { Colors } from '../constants';
+import { AllNavigationName, Colors } from '../constants';
 import { Button, Input, LoadingOverlay, Logo } from '../components';
 import { useNavigation } from '@react-navigation/native';
 import { useContext, useEffect, useState } from 'react';
@@ -38,7 +38,7 @@ export const MpinScreen = () => {
 		setIsSubmitting(true);
 		if (authCtx.time === 'subsequent') {
 			if (loginMpin === enteredPin) {
-				navigation.navigate('Drawer' as never);
+				navigation.navigate(AllNavigationName.drawer as never);
 			} else {
 				setIsSubmitting(false);
 				setError('Wrong mpin - please try again later!');
@@ -51,7 +51,7 @@ export const MpinScreen = () => {
 						loginid: authCtx.id,
 					};
 					await storeLoginDetails(loginDetails);
-					navigation.navigate('Drawer' as never);
+					navigation.navigate(AllNavigationName.drawer as never);
 				}
 			} catch (error) {
 				setError('Could not save data - please try again later!');

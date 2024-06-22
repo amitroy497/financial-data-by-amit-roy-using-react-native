@@ -5,6 +5,7 @@ import { Alert } from 'react-native';
 import { fetchLoginDetails, login } from '../utils';
 import { CreateloginTypes } from '../constants/types';
 import { useNavigation } from '@react-navigation/native';
+import { AllNavigationName } from '../constants';
 
 export const LoginScreen = () => {
 	const [isAuthenticating, setIsAuthenticating] = useState<boolean>(false);
@@ -22,9 +23,9 @@ export const LoginScreen = () => {
 			const isPresent = !!loginDetails?.find((log) => log?.loginid === id);
 
 			if (isPresent) {
-				navigation.navigate('Drawer' as never);
+				navigation.navigate(AllNavigationName.drawer as never);
 			} else {
-				navigation.navigate('Mpin' as never);
+				navigation.navigate(AllNavigationName.mPin as never);
 			}
 		} catch (error) {
 			Alert.alert(

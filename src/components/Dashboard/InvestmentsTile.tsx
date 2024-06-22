@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Tile1 } from '../UI';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Colors } from '../../constants';
+import { AllNavigationName, Colors } from '../../constants';
 
 const InvestmentBackground = require('../../images/dashboardSecond.png');
 
@@ -11,7 +11,9 @@ export const InvestmentsTile = () => {
 
 	return (
 		<Pressable
-			onPress={() => navigation.navigate('Investments' as never)}
+			onPress={() =>
+				navigation.navigate(AllNavigationName.investments as never)
+			}
 			android_ripple={{ color: Colors.white }}
 		>
 			<Tile1 image={InvestmentBackground}>

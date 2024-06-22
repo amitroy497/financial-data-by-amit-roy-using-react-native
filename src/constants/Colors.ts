@@ -33,4 +33,5 @@ export const Colors = {
 	gradient11: ['#5F0F40', '#310E68'],
 	gradient12: ['#CC9934', '#1E1D1B'],
 	gradient13: ['#874000', '#BC6F03'],
+	gradient14: ['#000000', '#130F40'],
 };

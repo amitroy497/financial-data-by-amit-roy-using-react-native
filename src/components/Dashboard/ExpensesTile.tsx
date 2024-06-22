@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Tile1 } from '../UI';
-import { Colors } from '../../constants';
+import { AllNavigationName, Colors } from '../../constants';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -10,7 +10,7 @@ export const ExpensesTile = () => {
 	const navigation = useNavigation();
 	return (
 		<Pressable
-			onPress={() => navigation.navigate('Expenses' as never)}
+			onPress={() => navigation.navigate(AllNavigationName.expenses as never)}
 			android_ripple={{ color: Colors.white }}
 		>
 			<Tile1 image={ExpenseBackground}>

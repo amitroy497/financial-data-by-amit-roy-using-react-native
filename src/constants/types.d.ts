@@ -111,6 +111,7 @@ export type Tile3Types = {
 };
 
 export type Tile4Types = {
+	label: string;
 	investedValue: string;
 	marketValue: string;
 };

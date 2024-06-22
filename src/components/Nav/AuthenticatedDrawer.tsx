@@ -6,16 +6,12 @@ import {
 	MaterialCommunityIcons,
 	MaterialIcons,
 } from '@expo/vector-icons';
-import {
-	DashboardScreen,
-	ExpensesScreen,
-	Investments,
-	SavingsScreen,
-} from '../../screens';
+import { DashboardScreen, ExpensesScreen, SavingsScreen } from '../../screens';
 import { AuthContext } from '../../store';
 import { IconButton } from '../UI';
-import { Colors } from '../../constants';
+import { AllNavigationName, Colors } from '../../constants';
 import { BalanceSheetNavigation } from './BalanceSheetNavigation';
+import { InvestmentsNavigation } from './Investments/InvestmentsNavigation';
 
 export const AuthenticatedDrawer = () => {
 	const Drawer = createDrawerNavigator();
@@ -46,7 +42,7 @@ export const AuthenticatedDrawer = () => {
 			}}
 		>
 			<Drawer.Screen
-				name='Dashboard'
+				name={AllNavigationName.dashboard}
 				component={DashboardScreen}
 				options={{
 					drawerLabel: 'Home',
@@ -56,7 +52,7 @@ export const AuthenticatedDrawer = () => {
 				}}
 			/>
 			<Drawer.Screen
-				name='Balancesheet'
+				name={AllNavigationName.balanceSheet}
 				component={BalanceSheetNavigation}
 				options={{
 					title: 'Balance Sheet',
@@ -79,8 +75,8 @@ export const AuthenticatedDrawer = () => {
 				}}
 			/>
 			<Drawer.Screen
-				name='Investments'
-				component={Investments}
+				name={AllNavigationName.investments}
+				component={InvestmentsNavigation}
 				options={{
 					title: 'Investments',
 					drawerLabel: 'Investments',
@@ -94,7 +90,7 @@ export const AuthenticatedDrawer = () => {
 				}}
 			/>
 			<Drawer.Screen
-				name='Savings'
+				name={AllNavigationName.savings}
 				component={SavingsScreen}
 				options={{
 					drawerLabel: 'Savings',
@@ -104,7 +100,7 @@ export const AuthenticatedDrawer = () => {
 				}}
 			/>
 			<Drawer.Screen
-				name='Expenses'
+				name={AllNavigationName.expenses}
 				component={ExpensesScreen}
 				options={{
 					drawerLabel: 'Expenses',

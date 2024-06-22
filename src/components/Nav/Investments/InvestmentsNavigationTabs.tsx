@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { UpdateBalanceSheet, ViewBalanceSheet } from '../../screens';
+import { AllNavigationName, Colors } from '../../../constants';
+import { UpdateInvestments, ViewInvestments } from '../../../screens';
 import { MaterialIcons } from '@expo/vector-icons';
-import { AllNavigationName, Colors } from '../../constants';
 
-export const BalanceSheetNavigation = () => {
+export const InvestmentsNavigationTabs = () => {
 	const BottomTabs = createBottomTabNavigator();
 
 	return (
@@ -16,10 +16,10 @@ export const BalanceSheetNavigation = () => {
 			}}
 		>
 			<BottomTabs.Screen
-				name={AllNavigationName.viewBalanceSheet}
-				component={ViewBalanceSheet}
+				name={AllNavigationName.viewInvestments}
+				component={ViewInvestments}
 				options={{
-					title: 'View Balance Sheet',
+					title: 'View Investments',
 					tabBarLabel: 'View',
 					tabBarIcon: ({ color, size }) => (
 						<MaterialIcons name='preview' size={size} color={color} />
@@ -27,10 +27,10 @@ export const BalanceSheetNavigation = () => {
 				}}
 			/>
 			<BottomTabs.Screen
-				name={AllNavigationName.updateBalanceSheet}
-				component={UpdateBalanceSheet}
+				name={AllNavigationName.updateInvestments}
+				component={UpdateInvestments}
 				options={{
-					title: 'Update Balance Sheet',
+					title: 'Update Investments',
 					tabBarLabel: 'Update',
 					tabBarIcon: ({ color, size }) => (
 						<MaterialIcons name='update' size={size} color={color} />

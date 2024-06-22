@@ -90,7 +90,7 @@ export const Tile2 = ({
 	);
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	pressable: {
 		marginVertical: 10,
 		overflow: 'hidden',

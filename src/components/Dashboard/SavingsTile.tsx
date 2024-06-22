@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Tile1 } from '../UI';
-import { Colors } from '../../constants';
+import { AllNavigationName, Colors } from '../../constants';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,7 +11,7 @@ export const SavingsTile = () => {
 
 	return (
 		<Pressable
-			onPress={() => navigation.navigate('Savings' as never)}
+			onPress={() => navigation.navigate(AllNavigationName.savings as never)}
 			android_ripple={{ color: Colors.white }}
 		>
 			<Tile1 image={SavingsBackground}>

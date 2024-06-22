@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MpinScreen } from '../../screens';
 import { AuthenticatedDrawer } from './AuthenticatedDrawer';
+import { AllNavigationName } from '../../constants';
 
 export const AuthenticatedMpinStack = () => {
 	const Stack = createNativeStackNavigator();
@@ -11,8 +12,11 @@ export const AuthenticatedMpinStack = () => {
 				headerShown: false,
 			}}
 		>
-			<Stack.Screen name='Mpin' component={MpinScreen} />
-			<Stack.Screen name='Drawer' component={AuthenticatedDrawer} />
+			<Stack.Screen name={AllNavigationName.mPin} component={MpinScreen} />
+			<Stack.Screen
+				name={AllNavigationName.drawer}
+				component={AuthenticatedDrawer}
+			/>
 		</Stack.Navigator>
 	);
 };

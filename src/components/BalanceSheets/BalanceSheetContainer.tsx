@@ -9,7 +9,7 @@ import {
 	AssetsLiabilitiesSubHeader,
 	Button,
 } from '../UI';
-import { Colors } from '../../constants';
+import { AllNavigationName, Colors } from '../../constants';
 import { SUM, updateBalanceSheetDetails } from '../../utils';
 import { balanceSheetActions } from '../../store';
 
@@ -155,7 +155,7 @@ export const BalanceSheetContainer = ({
 			await updateBalanceSheetDetails(updateId, inputs);
 			dispatch(balanceSheetActions.setBalanceSheetDetails(inputs as never));
 			Alert.alert('Success!', 'Data saved successfully');
-			navigation.navigate('ViewBalanceSheet' as never);
+			navigation.navigate(AllNavigationName.viewBalanceSheet as never);
 		} catch (error) {
 			Alert.alert('Sorry!', 'Could not save data - please try again later!');
 		}

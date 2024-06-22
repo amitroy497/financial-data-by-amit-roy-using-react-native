@@ -1,25 +1,35 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Colors } from '../../../constants';
+import { Colors, ScreenRedirection } from '../../../constants';
 import { AntDesign } from '@expo/vector-icons';
 import { Tile4Types } from '../../../constants/types';
 import { PERCENTAGE, SUBTRACT } from '../../../utils';
+import { useNavigation } from '@react-navigation/native';
 
 const investedIcon = require('../../../images/invested-value-icon.png');
 const middleIcon = require('../../../images/market-value-icon.png');
 const gainLossIcon = require('../../../images/gain-loss-icon.png');
 
-export const Tile4 = ({ investedValue, marketValue }: Tile4Types) => {
+export const Tile4 = ({ label, investedValue, marketValue }: Tile4Types) => {
+	const navigation = useNavigation();
+
 	const gainLossValue = SUBTRACT([+investedValue, +marketValue]);
+
+	const screenObj = ScreenRedirection.find((item) => item?.label === label);
+
+	const onPressHandler = () => {
+		navigation.navigate(screenObj?.route as never);
+	};
 
 	return (
 		<View style={styles.container}>
 			<Pressable
 				style={({ pressed }) => pressed && styles.pressed}
 				android_ripple={{ color: Colors.white }}
+				onPress={onPressHandler}
 			>
-				<LinearGradient colors={Colors.gradient5} style={styles.gradient}>
-					<Text style={styles.labelText}>Mutual Funds</Text>
+				<LinearGradient colors={screenObj?.gradient!} style={styles.gradient}>
+					<Text style={styles.labelText}>{label}</Text>
 					<View style={styles.detailContainer}>
 						<View style={styles.iconContainer}>
 							<Image source={investedIcon} width={20} height={20} />
@@ -54,7 +64,7 @@ export const Tile4 = ({ investedValue, marketValue }: Tile4Types) => {
 								<AntDesign
 									name={gainLossValue > 0 ? 'arrowup' : 'arrowdown'}
 									color={gainLossValue > 0 ? Colors.lime : Colors.red400}
-									size={18}
+									size={16}
 								/>
 								<Text
 									style={[
@@ -94,10 +104,10 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		marginVertical: 10,
 		alignItems: 'center',
-		height: 94,
+		height: 84,
 	},
 	iconContainer: {
-		marginRight: 10,
+		marginRight: 5,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
@@ -114,9 +124,9 @@ const styles = StyleSheet.create({
 	},
 	detailText: {
 		fontWeight: 'bold',
-		fontSize: 15,
+		fontSize: 14,
 		color: Colors.white,
-		width: 90,
+		width: 80,
 		textAlign: 'right',
 		marginRight: 5,
 	},
@@ -133,8 +143,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	detailTextPercent: {
-		fontSize: 16,
+		fontSize: 14,
 		fontWeight: 'bold',
-		marginLeft: 5,
+		marginLeft: 2,
 	},
 });

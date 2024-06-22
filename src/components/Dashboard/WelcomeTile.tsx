@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useDispatch } from 'react-redux';
 import { Tile1 } from '../UI';
-import { Colors } from '../../constants';
+import { AllNavigationName, Colors } from '../../constants';
 import { fetchBalanceSheetDetails } from '../../utils';
 import { balanceSheetActions } from '../../store';
 
@@ -19,7 +19,7 @@ export const WelcomeTile = () => {
 		dispatch(
 			balanceSheetActions.setBalanceSheetDetails(balanceSheetData as never)
 		);
-		navigation.navigate('Balancesheet' as never);
+		navigation.navigate(AllNavigationName.balanceSheet as never);
 	};
 
 	return (
