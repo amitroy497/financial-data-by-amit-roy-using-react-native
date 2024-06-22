@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Tile } from '../UI';
+import { Tile1 } from '../UI';
 import { Colors } from '../../constants';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -14,7 +14,7 @@ export const SavingsTile = () => {
 			onPress={() => navigation.navigate('Savings' as never)}
 			android_ripple={{ color: Colors.white }}
 		>
-			<Tile image={SavingsBackground}>
+			<Tile1 image={SavingsBackground}>
 				<View style={styles.headerContainer}>
 					<View style={styles.headerTextContainer}>
 						<Text style={styles.headerText}>View your</Text>
@@ -31,7 +31,7 @@ export const SavingsTile = () => {
 						All your savings in a single place
 					</Text>
 				</View>
-			</Tile>
+			</Tile1>
 		</Pressable>
 	);
 };

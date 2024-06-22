@@ -9,7 +9,7 @@ import {
 import {
 	DashboardScreen,
 	ExpensesScreen,
-	InvestmentsScreen,
+	Investments,
 	SavingsScreen,
 } from '../../screens';
 import { AuthContext } from '../../store';
@@ -80,7 +80,7 @@ export const AuthenticatedDrawer = () => {
 			/>
 			<Drawer.Screen
 				name='Investments'
-				component={InvestmentsScreen}
+				component={Investments}
 				options={{
 					title: 'Investments',
 					drawerLabel: 'Investments',

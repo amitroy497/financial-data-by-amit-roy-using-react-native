@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useDispatch } from 'react-redux';
-import { Tile } from '../UI';
+import { Tile1 } from '../UI';
 import { Colors } from '../../constants';
 import { fetchBalanceSheetDetails } from '../../utils';
 import { balanceSheetActions } from '../../store';
@@ -23,7 +23,7 @@ export const WelcomeTile = () => {
 	};
 
 	return (
-		<Tile image={WelcomeImage}>
+		<Tile1 image={WelcomeImage}>
 			<View style={styles.container}>
 				<Text style={[styles.welcomeText, styles.welcomeHeaderText]}>
 					Welcome,
@@ -48,7 +48,7 @@ export const WelcomeTile = () => {
 				<Text style={styles.grayText}>Click to view the Balance Sheet</Text>
 				<AntDesign name='right' size={14} color={Colors.grey400} />
 			</Pressable>
-		</Tile>
+		</Tile1>
 	);
 };
 

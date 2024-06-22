@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Tile } from '../UI';
+import { Tile1 } from '../UI';
 import { Colors } from '../../constants';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -13,7 +13,7 @@ export const ExpensesTile = () => {
 			onPress={() => navigation.navigate('Expenses' as never)}
 			android_ripple={{ color: Colors.white }}
 		>
-			<Tile image={ExpenseBackground}>
+			<Tile1 image={ExpenseBackground}>
 				<View style={styles.headerContainer}>
 					<View style={styles.headerTextContainer}>
 						<Text style={styles.headerText}>View your</Text>
@@ -30,7 +30,7 @@ export const ExpensesTile = () => {
 						All your expenses in a single place
 					</Text>
 				</View>
-			</Tile>
+			</Tile1>
 		</Pressable>
 	);
 };

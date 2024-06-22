@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Tile } from '../UI';
+import { Tile1 } from '../UI';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Colors } from '../../constants';
 
@@ -14,7 +14,7 @@ export const InvestmentsTile = () => {
 			onPress={() => navigation.navigate('Investments' as never)}
 			android_ripple={{ color: Colors.white }}
 		>
-			<Tile image={InvestmentBackground}>
+			<Tile1 image={InvestmentBackground}>
 				<View style={styles.headerContainer}>
 					<View style={styles.headerTextContainer}>
 						<Text style={styles.headerText}>View</Text>
@@ -35,7 +35,7 @@ export const InvestmentsTile = () => {
 						Quick overview of your holdings
 					</Text>
 				</View>
-			</Tile>
+			</Tile1>
 		</Pressable>
 	);
 };

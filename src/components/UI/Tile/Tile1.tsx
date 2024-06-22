@@ -1,7 +1,7 @@
 import { ImageBackground, StyleSheet, View } from 'react-native';
-import { TileTypes } from '../../constants/types';
+import { Tile1Types } from '../../../constants/types';
 
-export const Tile = ({ children, image }: TileTypes) => {
+export const Tile1 = ({ children, image }: Tile1Types) => {
 	return (
 		<ImageBackground
 			source={image}

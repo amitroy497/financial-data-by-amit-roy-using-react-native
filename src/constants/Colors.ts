@@ -9,6 +9,8 @@ export const Colors = {
 	blue700: '#3a2f5c',
 	blue900: '#01052e',
 	red400: '#e84a3f',
+	red500: '#f22613',
+	red900: '#cc3300',
 	yellow700: '#f5b60a',
 	violet500: '#a980e1',
 	violet600: '#836fe0',
@@ -16,4 +18,9 @@ export const Colors = {
 	error50: '#fcc4e4',
 	error500: '#9b095c',
 	hsl: 'hsla(0,0%,100%,.1)',
+	lime: '#00ff00',
+	text1: '#E3DAF4',
+	gradient1: ['#6555a8', '#906dd9'],
+	gradient2: ['#604c96', '#30daff'],
+	gradient3: ['#2465a2', '#26b1a9'],
 };

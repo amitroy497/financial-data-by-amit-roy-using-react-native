@@ -91,7 +91,21 @@ export type MpinLoginTypes = {
 	mpin: string;
 };
 
-export type TileTypes = {
+export type Tile1Types = {
 	children: ReactNode;
 	image: any;
+};
+
+export type Tile2Types = {
+	imageSource: any;
+	fundLabel: string;
+	holdingPercentage: string;
+	gradientColor: array;
+	investedValue: string;
+	marketValue: string;
+};
+
+export type Tile3Types = {
+	investedValue: string;
+	marketValue: string;
 };
