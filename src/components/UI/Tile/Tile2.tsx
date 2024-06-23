@@ -31,8 +31,8 @@ export const Tile2 = ({
 		// 	const id = await storeInvestmentDetails(allInvestmentsMock);
 		// 	console.log(id);
 		// } catch (err) {}
-
-		await AsyncStorage.setItem('investmentCode', code);
+		console.log('investmentCode', code);
+		AsyncStorage.setItem('investmentCode', code.toString());
 		navigation.navigate(AllNavigationName.investMentsNavigationTab);
 	};
 
