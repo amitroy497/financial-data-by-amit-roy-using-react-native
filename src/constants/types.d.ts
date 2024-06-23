@@ -118,3 +118,12 @@ export type Tile4Types = {
 	investedValue: string;
 	marketValue: string;
 };
+
+export type Tile5Types = {
+	label: string;
+	investedValue: string;
+	marketValue: string;
+	gainLossValue: string;
+	gainLossPercentage: string;
+	imageSource: any;
+};
