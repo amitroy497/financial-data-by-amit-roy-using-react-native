@@ -4,3 +4,4 @@ export * from './loginApi';
 export * from './math';
 export * from './mocks/balanceSheetMock';
 export * from './mocks';
+export * from './investmentsApi';

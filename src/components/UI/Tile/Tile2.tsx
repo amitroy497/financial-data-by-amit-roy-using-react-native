@@ -1,26 +1,47 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Tile2Types } from '../../../constants/types';
-import { Colors } from '../../../constants';
+import { AllNavigationName, Colors } from '../../../constants';
 import { AntDesign } from '@expo/vector-icons';
-import { PERCENTAGE, SUBTRACT } from '../../../utils';
+import { allInvestmentsMock, PERCENTAGE, SUBTRACT } from '../../../utils';
+import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { mutualFundInvestmentsMock } from '../../../utils/mocks/mutualFundInvestmentsMock';
+import { storeInvestmentDetails } from '../../../utils/investmentsApi';
 
 const investedIcon = require('../../../images/invested-value-icon.png');
 const middleIcon = require('../../../images/market-value-icon.png');
 const gainLossIcon = require('../../../images/gain-loss-icon.png');
 
 export const Tile2 = ({
+	code,
 	imageSource,
 	fundLabel,
 	holdingPercentage,
 	gradientColor,
 	investedValue,
 	marketValue,
+	gainLossValue,
+	gainLossPercentage,
 }: Tile2Types) => {
-	const gainLossValue = SUBTRACT([+investedValue, +marketValue]);
+	const navigation = useNavigation<any>();
+
+	const onPressHandler = async () => {
+		// try {
+		// 	const id = await storeInvestmentDetails(allInvestmentsMock);
+		// 	console.log(id);
+		// } catch (err) {}
+
+		await AsyncStorage.setItem('investmentCode', code);
+		navigation.navigate(AllNavigationName.investMentsNavigationTab);
+	};
 
 	return (
-		<Pressable style={styles.pressable}>
+		<Pressable
+			style={styles.pressable}
+			onPress={onPressHandler}
+			android_ripple={{ color: Colors.white }}
+		>
 			<LinearGradient colors={gradientColor} style={styles.gradient}>
 				<View style={styles.subContainer1}>
 					<View style={styles.imageContainer}>
@@ -33,7 +54,7 @@ export const Tile2 = ({
 								Holding Percentage:
 							</Text>
 							<Text style={styles.holdingPercentValue}>
-								{holdingPercentage}%
+								{holdingPercentage}
 							</Text>
 						</View>
 					</View>
@@ -61,26 +82,24 @@ export const Tile2 = ({
 						<Text style={[styles.detailText, styles.middleBox]}>
 							₹{marketValue}
 						</Text>
-						<Text style={styles.detailText}>
-							₹{Math.abs(+gainLossValue).toFixed(2)}
-						</Text>
+						<Text style={styles.detailText}>₹{gainLossValue}</Text>
 					</View>
 					<View style={styles.detailPercentageContainer}>
 						<View></View>
 						<View style={styles.detailPercentageMiddleLabel}></View>
 						<View style={styles.detailPercentageSubContainer}>
 							<AntDesign
-								name={gainLossValue > 0 ? 'arrowup' : 'arrowdown'}
-								color={gainLossValue > 0 ? Colors.lime : Colors.red400}
+								name={+gainLossValue > 0 ? 'arrowup' : 'arrowdown'}
+								color={+gainLossValue > 0 ? Colors.lime : Colors.red400}
 								size={18}
 							/>
 							<Text
 								style={[
 									styles.detailTextPercent,
-									{ color: gainLossValue > 0 ? Colors.lime : Colors.red400 },
+									{ color: +gainLossValue > 0 ? Colors.lime : Colors.red400 },
 								]}
 							>
-								{PERCENTAGE(gainLossValue, investedValue)}%
+								{gainLossPercentage}
 							</Text>
 						</View>
 					</View>
@@ -118,7 +137,7 @@ const styles = StyleSheet.create({
 	},
 	fundLabelContainer: {
 		justifyContent: 'center',
-		marginLeft: 20,
+		marginLeft: 8,
 	},
 	fundLabelText: {
 		color: Colors.text1,

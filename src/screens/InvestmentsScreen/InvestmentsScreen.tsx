@@ -1,12 +1,33 @@
-import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import {
+	Alert,
+	ImageBackground,
+	ScrollView,
+	StyleSheet,
+	View,
+} from 'react-native';
 import { Tile3, Tile4 } from '../../components';
 import { AllLabels, Colors } from '../../constants';
-import { allInvestmentsMock } from '../../utils';
-import { Fragment } from 'react';
+import { allInvestmentsMock, fetchInvestmentDetails } from '../../utils';
+import { Fragment, useLayoutEffect } from 'react';
+import { investmentActions } from '../../store';
+import { useDispatch } from 'react-redux';
 
 const wave = require('../../images/wave.png');
 
 export const InvestmentsScreen = () => {
+	const dispatch = useDispatch<any>();
+	useLayoutEffect(() => {
+		const getMutualFund = async () => {
+			try {
+				const investmentData: any = await fetchInvestmentDetails();
+				dispatch(investmentActions.setInvestmentDetails(investmentData));
+			} catch (error) {
+				Alert.alert('Sorry!', 'Something went wrong!');
+			}
+		};
+		getMutualFund();
+	}, []);
+
 	return (
 		<View style={styles.rootContainer}>
 			<ScrollView style={styles.container}>

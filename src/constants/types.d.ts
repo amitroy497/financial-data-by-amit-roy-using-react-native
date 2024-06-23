@@ -97,12 +97,15 @@ export type Tile1Types = {
 };
 
 export type Tile2Types = {
+	code: string;
 	imageSource: any;
 	fundLabel: string;
 	holdingPercentage: string;
 	gradientColor: array;
 	investedValue: string;
 	marketValue: string;
+	gainLossValue: string;
+	gainLossPercentage: string;
 };
 
 export type Tile3Types = {
