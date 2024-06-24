@@ -26,6 +26,6 @@ export const fetchInvestmentDetails = async () => {
 	return investmentData;
 };
 
-export const updateMutualFundDetails = (id: string, investmentData: any) => {
+export const updateInvestmentDetails = (id: string, investmentData: any) => {
 	return axios.put(`${BACKEND_URL}/investments/${id}.json`, investmentData);
 };

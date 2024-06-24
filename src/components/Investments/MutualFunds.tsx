@@ -1,19 +1,24 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button, Tile5, Tile6 } from '../UI';
 import { ScrollView } from 'react-native-gesture-handler';
-import { useSelector } from 'react-redux';
-import {
-	Fragment,
-	useCallback,
-	useEffect,
-	useLayoutEffect,
-	useState,
-} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Fragment, useEffect, useLayoutEffect, useState } from 'react';
 import { AllInvestments, AllNavigationName, Codes } from '../../constants';
-import { StyleSheet, View } from 'react-native';
-import { timeout } from '../../utils';
+import { Alert, StyleSheet, View } from 'react-native';
+import {
+	PERCENTAGE,
+	SUBTRACT,
+	timeout,
+	updateInvestmentDetails,
+} from '../../utils';
+import { investmentActions } from '../../store';
+import { useNavigation } from '@react-navigation/native';
 
 export const MutualFunds = ({ location }: { location: string }) => {
+	const dispatch = useDispatch();
+
+	const navigation = useNavigation();
+
 	const [mutualFundData, setMutualFundData] = useState<any>([]);
 	const [investmentCode, setInvestmentCode] = useState<string>('');
 	const [reset, setReset] = useState<boolean>(false);
@@ -22,36 +27,60 @@ export const MutualFunds = ({ location }: { location: string }) => {
 		(s: any) => s.investments || {}
 	);
 
+	const { details: investmentDetails }: any = investmentData?.data.find(
+		(item: any) => {
+			return item?.code === Codes.mutualFund;
+		}
+	);
+
 	const isUpdate =
 		location === AllNavigationName.updateInvestments ? true : false;
 
 	useLayoutEffect(() => {
-		const { details }: any = investmentData?.data.find((item: any) => {
-			return item?.code === Codes.mutualFund;
-		});
-
-		// console.log('details', details);
-
 		const getInvestmentCode = async () => {
 			const invCode: string = (await AsyncStorage.getItem(
 				'investmentCode'
 			)) as string;
 			setInvestmentCode(invCode);
-			const currentMfData = details?.find((item: any) => {
+			const currentMfData = investmentDetails?.find((item: any) => {
 				return item?.code === invCode;
 			});
 			setMutualFundData(currentMfData);
 		};
 		getInvestmentCode();
-	}, []);
+	}, [investmentDetails]);
 
 	const getData = (val: any) => {
-		// console.log('Mahadev', val);
-		// console.log('mutualFundData', mutualFundData);
-		const data = mutualFundData?.details?.map((item: any) => {
+		const data: any = mutualFundData?.details?.map((item: any) => {
 			return val?.code === item?.code ? { ...item, ...val } : item;
 		});
-		const newData = { ...mutualFundData, details: [...data] };
+
+		const newInvestedValue = data
+			?.reduce(
+				(acc: any, currentValue: any) => acc + +currentValue.investedValue,
+				0
+			)
+			.toFixed(2)
+			.toString();
+
+		const newMarketValue = data
+			?.reduce(
+				(acc: any, currentValue: any) => acc + +currentValue.marketValue,
+				0
+			)
+			.toFixed(2)
+			.toString();
+
+		const newGainLossValue = SUBTRACT([+newInvestedValue, +newMarketValue]);
+
+		const newData = {
+			...mutualFundData,
+			details: [...data],
+			investedValue: newInvestedValue,
+			marketValue: newMarketValue,
+			gainLoss: newGainLossValue,
+			gainLossPercentage: PERCENTAGE(newGainLossValue, newInvestedValue),
+		};
 		setMutualFundData(newData);
 	};
 
@@ -61,9 +90,7 @@ export const MutualFunds = ({ location }: { location: string }) => {
 		setReset(false);
 	};
 
-	const updateHandler = () => {
-		console.log('investmentData', investmentData);
-		console.log('mutualFundData', mutualFundData);
+	const updateHandler = async () => {
 		const updateData = investmentData?.data?.map((item1: any) => {
 			if (item1?.code === Codes.mutualFund) {
 				return {
@@ -78,9 +105,62 @@ export const MutualFunds = ({ location }: { location: string }) => {
 			}
 			return { ...item1 };
 		});
+
+		const updatedMf = updateData?.find(
+			(item: any) => item?.code === Codes.mutualFund
+		);
+		const newMfInvestedValue = updatedMf?.details
+			?.reduce(
+				(acc: any, currentValue: any) => acc + +currentValue.investedValue,
+				0
+			)
+			.toFixed(2)
+			.toString();
+
+		const newMfMarketValue = updatedMf?.details
+			?.reduce(
+				(acc: any, currentValue: any) => acc + +currentValue.marketValue,
+				0
+			)
+			.toFixed(2)
+			.toString();
+
+		const newMfGainLossValue = SUBTRACT([
+			+newMfInvestedValue,
+			+newMfMarketValue,
+		]);
+
+		const newUpdatedData = updateData?.map((item: any) => {
+			if (item?.code === Codes.mutualFund) {
+				return {
+					...item,
+					investedValue: newMfInvestedValue,
+					marketValue: newMfMarketValue,
+					gainLoss: newMfGainLossValue,
+					gainLossPercentage: PERCENTAGE(
+						newMfGainLossValue,
+						newMfInvestedValue
+					),
+				};
+			}
+			return { ...item };
+		});
 		const id = investmentData?.id;
-		const finalData = { id, updateData };
-		console.log('finalData', finalData);
+		const finalData: any = { id, data: newUpdatedData };
+
+		try {
+			dispatch(investmentActions.setInvestmentDetails(finalData));
+			await updateInvestmentDetails(id, newUpdatedData);
+			Alert.alert('Success!', 'Data saved successfully', [
+				{
+					text: 'OK',
+					onPress: () =>
+						navigation.navigate(AllNavigationName.mutualFunds as never),
+				},
+			]);
+		} catch (error) {
+			Alert.alert('Sorry!', 'Could not save data - please try again later!');
+		}
 	};
 
 	return (
