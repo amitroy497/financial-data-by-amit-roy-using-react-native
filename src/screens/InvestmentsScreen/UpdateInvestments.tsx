@@ -1,5 +1,6 @@
-import { Text } from 'react-native';
+import { MutualFunds } from '../../components';
+import { AllNavigationName } from '../../constants';
 
 export const UpdateInvestments = () => {
-	return <Text>UpdateInvestments</Text>;
+	return <MutualFunds location={AllNavigationName.updateInvestments} />;
 };

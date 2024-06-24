@@ -81,6 +81,12 @@ export type InputTypes = {
 	value: string;
 };
 
+export type Input2Types = {
+	style: any;
+	value: string;
+	onChangeText: any;
+};
+
 export type LoadingOverlayTypes = {
 	message: string;
 };
@@ -126,4 +132,18 @@ export type Tile5Types = {
 	gainLossValue: string;
 	gainLossPercentage: string;
 	imageSource: any;
+};
+
+export type Tile6Types = {
+	code;
+	label: string;
+	investedValue: string;
+	marketValue: string;
+	gainLossValue: string;
+	gainLossPercentage: string;
+	nav: string;
+	units: string;
+	isUpdate: boolean;
+	setData: (arg0: any) => void;
+	reset: boolean;
 };

@@ -3,11 +3,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Tile2Types } from '../../../constants/types';
 import { AllNavigationName, Colors } from '../../../constants';
 import { AntDesign } from '@expo/vector-icons';
-import { allInvestmentsMock, PERCENTAGE, SUBTRACT } from '../../../utils';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { mutualFundInvestmentsMock } from '../../../utils/mocks/mutualFundInvestmentsMock';
-import { storeInvestmentDetails } from '../../../utils/investmentsApi';
 
 const investedIcon = require('../../../images/invested-value-icon.png');
 const middleIcon = require('../../../images/market-value-icon.png');
@@ -27,11 +24,6 @@ export const Tile2 = ({
 	const navigation = useNavigation<any>();
 
 	const onPressHandler = async () => {
-		// try {
-		// 	const id = await storeInvestmentDetails(allInvestmentsMock);
-		// 	console.log(id);
-		// } catch (err) {}
-
 		AsyncStorage.setItem('investmentCode', code.toString());
 		navigation.navigate(AllNavigationName.investMentsNavigationTab);
 	};

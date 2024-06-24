@@ -5,3 +5,5 @@ export * from './math';
 export * from './mocks/balanceSheetMock';
 export * from './mocks';
 export * from './investmentsApi';
+export * from './delay';
+export * from './compare';

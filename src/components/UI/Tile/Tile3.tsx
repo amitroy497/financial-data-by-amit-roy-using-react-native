@@ -2,7 +2,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Colors } from '../../../constants';
 import { StyleSheet, Text, View } from 'react-native';
 import { Octicons } from '@expo/vector-icons';
-import { PERCENTAGE, SUBTRACT } from '../../../utils';
+import { ABSOLUTE, PERCENTAGE, SUBTRACT } from '../../../utils';
 import { Tile3Types } from '../../../constants/types';
 
 export const Tile3 = ({ investedValue, marketValue }: Tile3Types) => {
@@ -28,9 +28,7 @@ export const Tile3 = ({ investedValue, marketValue }: Tile3Types) => {
 						<Text style={[styles.detailText, styles.middleBox]}>
 							₹{marketValue}
 						</Text>
-						<Text style={styles.detailText}>
-							₹{Math.abs(+gainLossValue).toFixed(2)}
-						</Text>
+						<Text style={styles.detailText}>₹{ABSOLUTE(gainLossValue)}</Text>
 					</View>
 					<View style={styles.detailPercentageContainer}>
 						<View></View>
@@ -47,7 +45,7 @@ export const Tile3 = ({ investedValue, marketValue }: Tile3Types) => {
 									{ color: gainLossValue > 0 ? Colors.lime : Colors.red400 },
 								]}
 							>
-								{PERCENTAGE(gainLossValue, investedValue)}%
+								{PERCENTAGE(gainLossValue, investedValue)}
 							</Text>
 						</View>
 					</View>

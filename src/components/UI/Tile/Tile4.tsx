@@ -3,7 +3,7 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Colors, ScreenRedirection } from '../../../constants';
 import { AntDesign } from '@expo/vector-icons';
 import { Tile4Types } from '../../../constants/types';
-import { PERCENTAGE, SUBTRACT } from '../../../utils';
+import { ABSOLUTE, PERCENTAGE, SUBTRACT } from '../../../utils';
 import { useNavigation } from '@react-navigation/native';
 
 const investedIcon = require('../../../images/invested-value-icon.png');
@@ -53,9 +53,7 @@ export const Tile4 = ({ label, investedValue, marketValue }: Tile4Types) => {
 							<Text style={[styles.detailText, styles.middleBox]}>
 								₹{marketValue}
 							</Text>
-							<Text style={styles.detailText}>
-								₹{Math.abs(+gainLossValue).toFixed(2)}
-							</Text>
+							<Text style={styles.detailText}>₹{ABSOLUTE(gainLossValue)}</Text>
 						</View>
 						<View style={styles.detailPercentageContainer}>
 							<View></View>
@@ -72,7 +70,7 @@ export const Tile4 = ({ label, investedValue, marketValue }: Tile4Types) => {
 										{ color: gainLossValue > 0 ? Colors.lime : Colors.red400 },
 									]}
 								>
-									{PERCENTAGE(gainLossValue, investedValue)}%
+									{PERCENTAGE(gainLossValue, investedValue)}
 								</Text>
 							</View>
 						</View>

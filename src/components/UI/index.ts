@@ -6,3 +6,4 @@ export * from './Logo';
 export * from './IconButton';
 export * from './Tile';
 export * from './Input';
+export * from './Inputs';
