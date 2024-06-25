@@ -1,3 +1,5 @@
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
 	Image,
@@ -8,9 +10,7 @@ import {
 	View,
 } from 'react-native';
 import { AllNavigationName, Colors } from '../../../constants';
-import { AntDesign } from '@expo/vector-icons';
 import { Tile5Types } from '../../../constants/types';
-import { useNavigation } from '@react-navigation/native';
 
 const NIMFImage = require('../../../images/Nippon.png');
 const backgroundImage = require('../../../images/db-portfolio-head.png');

@@ -1,3 +1,45 @@
 {
-	"cSpell.words": ["Amit", "Pressable", "reduxjs", "shoonya"]
+	"workbench.colorTheme": "Cobalt2",
+	"workbench.iconTheme": "material-icon-theme",
+	"editor.fontSize": 22,
+	"editor.fontFamily": "'cascadia code', Consolas, 'Courier New', monospace",
+	"editor.fontLigatures": true,
+	"html.format.indentHandlebars": true,
+	"html.format.indentInnerHtml": true,
+	"html.format.endWithNewline": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit",
+		"source.organizeImports": "explicit",
+		"source.sortMembers": "explicit"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true,
+	"prettier.useTabs": true,
+	"editor.formatOnSave": true,
+	"editor.autoClosingBrackets": "always",
+	"editor.autoClosingQuotes": "always",
+	"tabnine.experimentalAutoImports": true,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"editor.guides.bracketPairs": "active",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"editor.linkedEditing": true,
+	"workbench.settings.applyToAllProfiles": [],
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+	"powermode.enabled": true,
+	"powermode.combo.timerEnabled": "show",
+	"powermode.combo.counterEnabled": "show",
+	"powermode.combo.location": "off",
+	"powermode.explosions.enabled": true,
+	"powermode.explosions.explosionOrder": "random",
+	"powermode.explosions.explosionSize": "medium",
+	"powermode.explosions.explosionSpeed": "fast",
+	"powermode.explosions.explosionColor": "random",
+	"prisma.showPrismaDataPlatformNotification": false,
+	"editor.fontVariations": false,
+	"workbench.editor.enablePreview": false,
+	"cSpell.languageSettings": []
 }

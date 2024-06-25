@@ -1,10 +1,10 @@
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Colors, ScreenRedirection } from '../../../constants';
-import { AntDesign } from '@expo/vector-icons';
 import { Tile4Types } from '../../../constants/types';
 import { ABSOLUTE, PERCENTAGE, SUBTRACT } from '../../../utils';
-import { useNavigation } from '@react-navigation/native';
 
 const investedIcon = require('../../../images/invested-value-icon.png');
 const middleIcon = require('../../../images/market-value-icon.png');

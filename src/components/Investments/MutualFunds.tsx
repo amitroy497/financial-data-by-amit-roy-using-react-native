@@ -1,18 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Button, Tile5, Tile6 } from '../UI';
+import { useNavigation } from '@react-navigation/native';
+import { Fragment, useLayoutEffect, useState } from 'react';
+import { Alert, StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
-import { Fragment, useEffect, useLayoutEffect, useState } from 'react';
 import { AllInvestments, AllNavigationName, Codes } from '../../constants';
-import { Alert, StyleSheet, View } from 'react-native';
+import { investmentActions } from '../../store';
 import {
 	PERCENTAGE,
 	SUBTRACT,
 	timeout,
 	updateInvestmentDetails,
 } from '../../utils';
-import { investmentActions } from '../../store';
-import { useNavigation } from '@react-navigation/native';
+import { Button, Tile5, Tile6 } from '../UI';
 
 export const MutualFunds = ({ location }: { location: string }) => {
 	const dispatch = useDispatch();

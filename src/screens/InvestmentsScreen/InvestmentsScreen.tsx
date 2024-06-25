@@ -9,8 +9,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { Tile3, Tile4 } from '../../components';
 import { Colors } from '../../constants';
-import { fetchInvestmentDetails } from '../../utils';
 import { investmentActions } from '../../store';
+import { fetchInvestmentDetails } from '../../utils';
 
 const wave = require('../../images/wave.png');
 

@@ -1,7 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
+import { AllNavigationName, Colors } from '../../constants';
+import { balanceSheetActions } from '../../store';
+import { SUM, updateBalanceSheetDetails } from '../../utils';
 import {
 	AssetLiabilitiesDetails,
 	AssetLiabilitiesHeader,
@@ -9,9 +12,6 @@ import {
 	AssetsLiabilitiesSubHeader,
 	Button,
 } from '../UI';
-import { AllNavigationName, Colors } from '../../constants';
-import { SUM, updateBalanceSheetDetails } from '../../utils';
-import { balanceSheetActions } from '../../store';
 
 export const BalanceSheetContainer = ({
 	updateId,

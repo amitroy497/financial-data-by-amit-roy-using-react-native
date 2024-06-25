@@ -1,8 +1,8 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { Tile1 } from '../UI';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { AllNavigationName, Colors } from '../../constants';
+import { Tile1 } from '../UI';
 
 const InvestmentBackground = require('../../images/dashboardSecond.png');
 

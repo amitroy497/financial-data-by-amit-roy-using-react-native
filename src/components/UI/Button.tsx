@@ -1,6 +1,6 @@
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ButtonTypes } from '../../constants/types';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 export const Button = ({
 	children,

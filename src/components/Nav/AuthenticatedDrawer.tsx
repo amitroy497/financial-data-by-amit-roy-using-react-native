@@ -1,15 +1,15 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { useContext } from 'react';
 import {
 	AntDesign,
 	Ionicons,
 	MaterialCommunityIcons,
 	MaterialIcons,
 } from '@expo/vector-icons';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useContext } from 'react';
+import { AllNavigationName, Colors } from '../../constants';
 import { DashboardScreen, ExpensesScreen, SavingsScreen } from '../../screens';
 import { AuthContext } from '../../store';
 import { IconButton } from '../UI';
-import { AllNavigationName, Colors } from '../../constants';
 import { BalanceSheetNavigation } from './BalanceSheetNavigation';
 import { InvestmentsNavigation } from './Investments/InvestmentsNavigation';
 

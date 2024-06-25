@@ -1,6 +1,6 @@
 import { TextInput } from 'react-native';
-import { stringToNumberToString } from '../../../utils';
 import { Input2Types } from '../../../constants/types';
+import { stringToNumberToString } from '../../../utils';
 
 export const Input2 = ({ style, onChangeText, value }: Input2Types) => {
 	return (

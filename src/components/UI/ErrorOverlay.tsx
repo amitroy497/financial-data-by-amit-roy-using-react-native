@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { Button } from './Button';
 import { ErrorOverlayTypes } from '../../constants/types';
+import { Button } from './Button';
 
 export const ErrorOverlay = ({ message, onConfirm }: ErrorOverlayTypes) => {
 	return (

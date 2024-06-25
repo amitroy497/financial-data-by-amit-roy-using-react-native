@@ -1,5 +1,5 @@
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { BalanceSheetContainer } from './BalanceSheetContainer';
 
 export const BalanceSheetWrapper = ({ location }: { location: string }) => {

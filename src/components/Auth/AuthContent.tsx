@@ -1,15 +1,15 @@
+import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
-import { AuthForm } from './AuthForm';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
 import { AllNavigationName, Colors } from '../../constants';
-import { FlatButton, Logo } from '../UI';
 import {
 	AuthContentTypes,
 	CredentialBooleanType,
 	CredentialType,
 } from '../../constants/types';
+import { FlatButton, Logo } from '../UI';
+import { AuthForm } from './AuthForm';
 
 export const AuthContent = ({ isLogin, onAuthenticate }: AuthContentTypes) => {
 	const navigation = useNavigation();

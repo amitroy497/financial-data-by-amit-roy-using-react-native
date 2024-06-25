@@ -1,7 +1,7 @@
+import { MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AllNavigationName, Colors } from '../../../constants';
 import { UpdateInvestments, ViewInvestments } from '../../../screens';
-import { MaterialIcons } from '@expo/vector-icons';
 
 export const InvestmentsNavigationTabs = () => {
 	const BottomTabs = createBottomTabNavigator();

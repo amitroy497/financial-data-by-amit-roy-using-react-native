@@ -1,9 +1,9 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { Colors } from '../../../constants';
-import { StyleSheet, Text, View } from 'react-native';
 import { Octicons } from '@expo/vector-icons';
-import { ABSOLUTE, PERCENTAGE, SUBTRACT } from '../../../utils';
+import { LinearGradient } from 'expo-linear-gradient';
+import { StyleSheet, Text, View } from 'react-native';
+import { Colors } from '../../../constants';
 import { Tile3Types } from '../../../constants/types';
+import { ABSOLUTE, PERCENTAGE, SUBTRACT } from '../../../utils';
 
 export const Tile3 = ({ investedValue, marketValue }: Tile3Types) => {
 	const gainLossValue = SUBTRACT([+investedValue, +marketValue]);

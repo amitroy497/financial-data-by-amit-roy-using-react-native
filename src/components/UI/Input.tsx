@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import { InputTypes } from '../../constants/types';
 import { Colors } from '../../constants';
+import { InputTypes } from '../../constants/types';
 
 export const Input = ({
 	isInvalid,

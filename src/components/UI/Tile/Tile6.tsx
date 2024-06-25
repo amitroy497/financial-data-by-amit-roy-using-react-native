@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../../constants';
 import { Tile6Types } from '../../../constants/types';

@@ -1,11 +1,11 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { Tile1 } from '../UI';
 import { AllNavigationName, Colors } from '../../constants';
-import { fetchBalanceSheetDetails } from '../../utils';
 import { balanceSheetActions } from '../../store';
+import { fetchBalanceSheetDetails } from '../../utils';
+import { Tile1 } from '../UI';
 
 const WelcomeImage = require('../../images/db-welcome.png');
 

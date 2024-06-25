@@ -1,10 +1,10 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { AllNavigationName } from '../../../constants';
 import {
 	InvestmentsScreen,
 	MutualFundScreen,
 	PPFScreen,
 } from '../../../screens';
-import { AllNavigationName } from '../../../constants';
 import { InvestmentsNavigationTabs } from './InvestmentsNavigationTabs';
 
 export const InvestmentsNavigation = () => {

@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { AllNavigationName } from '../../constants';
 import { MpinScreen } from '../../screens';
 import { AuthenticatedDrawer } from './AuthenticatedDrawer';
-import { AllNavigationName } from '../../constants';
 
 export const AuthenticatedMpinStack = () => {
 	const Stack = createNativeStackNavigator();

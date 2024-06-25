@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button, Input } from '../UI';
-import { Colors } from '../../constants';
+import { StyleSheet, View } from 'react-native';
 import { AuthFormTypes } from '../../constants/types';
+import { Button, Input } from '../UI';
 
 export const AuthForm = ({
 	isLogin,
