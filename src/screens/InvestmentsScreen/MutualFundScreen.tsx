@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { useSelector } from 'react-redux';
 import { ScrollView, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import { Tile2 } from '../../components';
 import { AllInvestments, Codes } from '../../constants';
 

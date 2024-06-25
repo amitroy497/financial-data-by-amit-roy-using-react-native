@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, useState } from 'react';
+import { Fragment, useLayoutEffect } from 'react';
 import {
 	Alert,
 	ImageBackground,
@@ -16,11 +16,6 @@ const wave = require('../../images/wave.png');
 
 export const InvestmentsScreen = () => {
 	const dispatch = useDispatch<any>();
-
-	const [totalValue, setTotalValue] = useState({
-		investedValue: '0.00',
-		marketValue: '0.00',
-	});
 
 	const { investments: investmentData } = useSelector(
 		(s: any) => s.investments || {}

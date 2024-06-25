@@ -2,7 +2,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Colors, ScreenRedirection } from '../../../constants';
+import { AllLabels, Colors, ScreenRedirection } from '../../../constants';
 import { Tile4Types } from '../../../constants/types';
 import { ABSOLUTE, PERCENTAGE, SUBTRACT } from '../../../utils';
 
@@ -41,14 +41,24 @@ export const Tile4 = ({ label, investedValue, marketValue }: Tile4Types) => {
 							/>
 							<Image source={gainLossIcon} width={20} height={20} />
 						</View>
-						<View style={styles.detailLabelValueContainer}>
-							<Text style={styles.detailLabel}>Invested Value</Text>
-							<Text style={[styles.detailLabel, styles.middleBox]}>
-								Market Value
+						<View style={styles.detailLabelContainer}>
+							<Text style={styles.detailLabel}>
+								{label === AllLabels.ppf
+									? AllLabels.principalAmount
+									: AllLabels.investValue}
 							</Text>
-							<Text style={styles.detailLabel}>Gain/Loss</Text>
+							<Text style={[styles.detailLabel, styles.middleBox]}>
+								{label === AllLabels.ppf
+									? AllLabels.totalAmount
+									: AllLabels.marketValue}
+							</Text>
+							<Text style={styles.detailLabel}>
+								{label === AllLabels.ppf
+									? AllLabels.interest
+									: AllLabels.gainLoss}
+							</Text>
 						</View>
-						<View style={styles.detailLabelValueContainer}>
+						<View style={styles.detailValueContainer}>
 							<Text style={styles.detailText}>₹{investedValue}</Text>
 							<Text style={[styles.detailText, styles.middleBox]}>
 								₹{marketValue}
@@ -97,6 +107,7 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: Colors.white,
+		marginBottom: 10,
 	},
 	detailContainer: {
 		flexDirection: 'row',
@@ -112,25 +123,32 @@ const styles = StyleSheet.create({
 	middleBox: {
 		marginVertical: 15,
 	},
-	detailLabelValueContainer: {
+	detailLabelContainer: {
 		marginRight: 2,
 		justifyContent: 'center',
+		width: '38%',
 	},
 	detailLabel: {
 		color: Colors.text1,
 		fontSize: 14,
+		width: '100%',
+	},
+	detailValueContainer: {
+		marginRight: 2,
+		justifyContent: 'center',
+		width: '24%',
 	},
 	detailText: {
 		fontWeight: 'bold',
 		fontSize: 14,
 		color: Colors.white,
-		width: 80,
 		textAlign: 'right',
-		marginRight: 5,
+		width: '100%',
 	},
 	detailPercentageContainer: {
 		height: '100%',
 		justifyContent: 'flex-end',
+		marginLeft: 2,
 	},
 	detailPercentageMiddleLabel: {
 		paddingVertical: 15,

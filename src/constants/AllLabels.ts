@@ -35,4 +35,13 @@ export const AllLabels = {
 	utiGoldMf: 'UTI Gold ETF Fund of Fund',
 	utiNiftyMf: 'UTI Nifty 50 Index Fund',
 	utiSensexMf: 'UTI S&P BSE Sensex Index Fund',
+	investValue: 'Invested Value',
+	marketValue: 'Market Value',
+	holdingPercentage: 'Holding Percentage',
+	gainLoss: 'Gain/Loss',
+	gainLossPercentage: 'Gain/Loss Percentage',
+	units: 'Units',
+	principalAmount: 'Principal Amount',
+	totalAmount: 'Total Amount',
+	interest: 'Interest',
 };
