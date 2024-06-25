@@ -101,12 +101,14 @@ const styles = StyleSheet.create({
 		opacity: 0.7,
 	},
 	gradient: {
-		padding: 12,
+		padding: 6,
 	},
 	labelText: {
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: Colors.white,
+		paddingHorizontal: 6,
+		marginTop: 8,
 		marginBottom: 10,
 	},
 	detailContainer: {
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
 	detailValueContainer: {
 		marginRight: 2,
 		justifyContent: 'center',
-		width: '24%',
+		width: '27%',
 	},
 	detailText: {
 		fontWeight: 'bold',
@@ -162,5 +164,6 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		fontWeight: 'bold',
 		marginLeft: 2,
+		textAlign: 'right',
 	},
 });

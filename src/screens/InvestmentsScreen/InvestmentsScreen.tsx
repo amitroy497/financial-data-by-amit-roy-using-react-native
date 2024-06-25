@@ -44,6 +44,9 @@ export const InvestmentsScreen = () => {
 	useLayoutEffect(() => {
 		const getMutualFund = async () => {
 			try {
+				// const investmentData: any = await storeInvestmentDetails(
+				// 	allInvestmentsMock
+				// );
 				const investmentData: any = await fetchInvestmentDetails();
 				dispatch(investmentActions.setInvestmentDetails(investmentData));
 			} catch (error) {
