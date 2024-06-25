@@ -89,6 +89,7 @@ export type Input2Types = {
 
 export type LoadingOverlayTypes = {
 	message: string;
+	color: any;
 };
 
 export type MpinLoginTypes = {

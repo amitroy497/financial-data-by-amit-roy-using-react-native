@@ -1,10 +1,10 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { LoadingOverlayTypes } from '../../constants/types';
 
-export const LoadingOverlay = ({ message }: LoadingOverlayTypes) => {
+export const LoadingOverlay = ({ message, color }: LoadingOverlayTypes) => {
 	return (
 		<View style={styles.rootContainer}>
-			<Text style={styles.message}>{message}</Text>
+			<Text style={[styles.message, { color: color }]}>{message}</Text>
 			<ActivityIndicator size='large' />
 		</View>
 	);
