@@ -1,3 +1,4 @@
+import { Fragment, useLayoutEffect } from 'react';
 import {
 	Alert,
 	ImageBackground,
@@ -5,17 +6,21 @@ import {
 	StyleSheet,
 	View,
 } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import { Tile3, Tile4 } from '../../components';
-import { AllLabels, Colors } from '../../constants';
-import { allInvestmentsMock, fetchInvestmentDetails } from '../../utils';
-import { Fragment, useLayoutEffect } from 'react';
+import { Colors } from '../../constants';
+import { fetchInvestmentDetails } from '../../utils';
 import { investmentActions } from '../../store';
-import { useDispatch } from 'react-redux';
 
 const wave = require('../../images/wave.png');
 
 export const InvestmentsScreen = () => {
 	const dispatch = useDispatch<any>();
+
+	const { investments: investmentData } = useSelector(
+		(s: any) => s.investments || {}
+	);
+
 	useLayoutEffect(() => {
 		const getMutualFund = async () => {
 			try {
@@ -37,15 +42,19 @@ export const InvestmentsScreen = () => {
 					resizeMode='cover'
 					style={styles.investmentContainer}
 				>
-					{allInvestmentsMock.map((item, index) => (
-						<Fragment key={index}>
-							<Tile4
-								label={item?.label}
-								investedValue={item?.investedValue}
-								marketValue={item?.marketValue}
-							/>
-						</Fragment>
-					))}
+					{investmentData.data.length > 0 && (
+						<>
+							{investmentData?.data?.map((item: any) => (
+								<Fragment key={item?.code}>
+									<Tile4
+										label={item?.label}
+										investedValue={item?.investedValue}
+										marketValue={item?.marketValue}
+									/>
+								</Fragment>
+							))}
+						</>
+					)}
 				</ImageBackground>
 			</ScrollView>
 		</View>

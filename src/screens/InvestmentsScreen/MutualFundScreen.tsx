@@ -1,9 +1,8 @@
-import { StyleSheet } from 'react-native';
-import { Tile2 } from '../../components';
-import { AllInvestments, Codes } from '../../constants';
-import { ScrollView } from 'react-native-gesture-handler';
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import { ScrollView, StyleSheet } from 'react-native';
+import { Tile2 } from '../../components';
+import { AllInvestments, Codes } from '../../constants';
 
 export const MutualFundScreen = () => {
 	const { investments: investmentData } = useSelector(

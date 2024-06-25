@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
+import { Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { AuthContent, LoadingOverlay } from '../components';
 import { AuthContext } from '../store';
-import { Alert } from 'react-native';
 import { fetchLoginDetails, login } from '../utils';
 import { CreateloginTypes } from '../constants/types';
-import { useNavigation } from '@react-navigation/native';
 import { AllNavigationName } from '../constants';
 
 export const LoginScreen = () => {
