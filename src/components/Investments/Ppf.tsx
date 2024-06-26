@@ -77,8 +77,8 @@ export const Ppf = ({ location }: { location: string }) => {
 				resetHandler={resetHandler}
 				updateHandler={updateHandler}
 			/>
-			{ppfData?.details?.map((item: any) => (
-				<Fragment key={item?.code}>
+			{ppfData?.details?.map((item: any, index: number) => (
+				<Fragment key={index}>
 					<Tile8
 						code={item?.code}
 						isUpdate={isUpdate}

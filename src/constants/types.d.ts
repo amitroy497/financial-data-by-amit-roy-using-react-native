@@ -137,7 +137,7 @@ export type Tile5Types = {
 };
 
 export type Tile6Types = {
-	code: any;
+	code: string;
 	label: string;
 	investedValue: string;
 	marketValue: string;
@@ -151,7 +151,7 @@ export type Tile6Types = {
 };
 
 export type Tile8Types = {
-	code: any;
+	code: string;
 	isUpdate: boolean;
 	setData: (arg0: any) => void;
 	reset: boolean;
