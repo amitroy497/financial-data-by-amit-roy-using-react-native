@@ -1,6 +1,6 @@
-import { MutualFunds } from '../../components';
+import { CommonViewUpdate } from '../../components';
 import { AllNavigationName } from '../../constants';
 
 export const ViewInvestments = () => {
-	return <MutualFunds location={AllNavigationName.viewInvestments} />;
+	return <CommonViewUpdate location={AllNavigationName.viewInvestments} />;
 };

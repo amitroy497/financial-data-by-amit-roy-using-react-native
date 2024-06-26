@@ -1,4 +1,5 @@
-import { Fragment } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Fragment, useLayoutEffect } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Tile2 } from '../../components';
@@ -13,6 +14,17 @@ export const MutualFundScreen = () => {
 			return item?.code === Codes.mutualFund;
 		}
 	);
+
+	useLayoutEffect(() => {
+		const setAsyncStorage = async () => {
+			const storage = await AsyncStorage.setItem(
+				'investmentType',
+				Codes.mutualFund
+			);
+			return storage;
+		};
+		setAsyncStorage();
+	}, []);
 
 	return (
 		<ScrollView style={styles.tilesContainer}>

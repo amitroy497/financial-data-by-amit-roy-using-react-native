@@ -4,7 +4,12 @@ import { Fragment, useLayoutEffect, useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
-import { AllInvestments, AllNavigationName, Codes } from '../../constants';
+import {
+	AllInvestments,
+	AllNavigationName,
+	AsyncStorageName,
+	Codes,
+} from '../../constants';
 import { investmentActions } from '../../store';
 import {
 	PERCENTAGE,
@@ -39,7 +44,7 @@ export const MutualFunds = ({ location }: { location: string }) => {
 	useLayoutEffect(() => {
 		const getInvestmentCode = async () => {
 			const invCode: string = (await AsyncStorage.getItem(
-				'investmentCode'
+				AsyncStorageName.investmentCode
 			)) as string;
 			setInvestmentCode(invCode);
 			const currentMfData = investmentDetails?.find((item: any) => {

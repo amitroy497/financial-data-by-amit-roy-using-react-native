@@ -1,13 +1,13 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { ScrollView, StyleSheet, View } from 'react-native';
-import { AllNavigationName, Colors } from '../constants';
-import { Button, Input, LoadingOverlay, Logo } from '../components';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useContext, useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Button, Input, LoadingOverlay, Logo } from '../components';
 import { ErrorOverlay } from '../components/UI/ErrorOverlay';
+import { AllNavigationName, AsyncStorageName, Colors } from '../constants';
 import { AuthContext } from '../store';
 import { fetchLoginDetails, storeLoginDetails } from '../utils';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const MpinScreen = () => {
 	const navigation = useNavigation();
@@ -23,7 +23,8 @@ export const MpinScreen = () => {
 	useEffect(() => {
 		const fetchMpinDetails = async () => {
 			const allLogins = await fetchLoginDetails();
-			const storageId: string = (await AsyncStorage.getItem('id')) || '';
+			const storageId: string =
+				(await AsyncStorage.getItem(AsyncStorageName.authId)) || '';
 			if (storageId && storageId?.length > 0) {
 				const loginDetails: any =
 					allLogins?.find((log) => log?.loginid === storageId) || [];
@@ -76,7 +77,7 @@ export const MpinScreen = () => {
 		return <ErrorOverlay message={error} onConfirm={errorHandler} />;
 	}
 	if (isSubmitting) {
-		return <LoadingOverlay message='Logging you in...' />;
+		return <LoadingOverlay message='Logging you in...' color={Colors.white} />;
 	}
 
 	return (

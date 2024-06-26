@@ -55,4 +55,58 @@ export const AllInvestments = [
 			},
 		],
 	},
+	{
+		ppf: [
+			{
+				code: Codes.fy2017_18,
+				gradient: Colors.gradient14,
+			},
+			{
+				code: Codes.fy2018_19,
+				gradient: Colors.gradient12,
+			},
+			{
+				code: Codes.fy2019_20,
+				gradient: Colors.gradient11,
+			},
+			{
+				code: Codes.fy2019_20,
+				gradient: Colors.gradient10,
+			},
+			{
+				code: Codes.fy2020_21,
+				image: ParagImage,
+				gradient: Colors.gradient9,
+			},
+			{
+				code: Codes.fy2021_22,
+				gradient: Colors.gradient8,
+			},
+			{
+				code: Codes.fy2022_23,
+				image: TataImage,
+				gradient: Colors.gradient7,
+			},
+			{
+				code: Codes.fy2023_24,
+				gradient: Colors.gradient6,
+			},
+			{
+				code: Codes.fy2024_25,
+				gradient: Colors.gradient5,
+			},
+			{
+				code: Codes.fy2025_26,
+				gradient: Colors.gradient4,
+			},
+			{
+				code: Codes.fy2026_27,
+				gradient: Colors.gradient3,
+			},
+			{
+				code: Codes.fy2027_28,
+				gradient: Colors.gradient2,
+			},
+		],
+	},
 ];

@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createContext, ReactNode, useEffect, useState } from 'react';
+import { AsyncStorageName } from '../../constants';
 
 export const AuthContext = createContext({
 	id: '',
@@ -17,8 +18,10 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		const fetchToken = async () => {
-			const storageToken: string = (await AsyncStorage.getItem('token')) || '';
-			const storageId: string = (await AsyncStorage.getItem('id')) || '';
+			const storageToken: string =
+				(await AsyncStorage.getItem(AsyncStorageName.token)) || '';
+			const storageId: string =
+				(await AsyncStorage.getItem(AsyncStorageName.authId)) || '';
 
 			if (storageToken && storageToken?.length > 0) {
 				setAuthToken(storageToken);
@@ -35,17 +38,17 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 
 	const authenticate = (id: string, token: string) => {
 		setAuthToken(token);
-		AsyncStorage.setItem('token', token);
+		AsyncStorage.setItem(AsyncStorageName.token, token);
 		setAuthId(id);
-		AsyncStorage.setItem('id', id);
+		AsyncStorage.setItem(AsyncStorageName.authId, id);
 		setAuthTime('first');
 	};
 
 	const logout = () => {
 		setAuthToken('');
-		AsyncStorage.removeItem('token');
+		AsyncStorage.removeItem(AsyncStorageName.token);
 		setAuthId('');
-		AsyncStorage.removeItem('id');
+		AsyncStorage.removeItem(AsyncStorageName.authId);
 		setAuthTime('');
 	};
 
