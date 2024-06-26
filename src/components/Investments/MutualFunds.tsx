@@ -176,6 +176,7 @@ export const MutualFunds = ({ location }: { location: string }) => {
 						item?.code === mutualFundData?.code && (
 							<Fragment key={item?.code}>
 								<Tile5
+									type={Codes.mutualFund}
 									label={mutualFundData?.label}
 									investedValue={mutualFundData?.investedValue}
 									marketValue={mutualFundData?.marketValue}

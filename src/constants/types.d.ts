@@ -127,12 +127,13 @@ export type Tile4Types = {
 };
 
 export type Tile5Types = {
+	type: string;
 	label: string;
 	investedValue: string;
 	marketValue: string;
 	gainLossValue: string;
 	gainLossPercentage: string;
-	imageSource: any;
+	imageSource?: any;
 };
 
 export type Tile6Types = {

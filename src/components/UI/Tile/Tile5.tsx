@@ -9,13 +9,13 @@ import {
 	Text,
 	View,
 } from 'react-native';
-import { AllNavigationName, Colors } from '../../../constants';
+import { Codes, Colors } from '../../../constants';
 import { Tile5Types } from '../../../constants/types';
 
-const NIMFImage = require('../../../images/Nippon.png');
 const backgroundImage = require('../../../images/db-portfolio-head.png');
 
 export const Tile5 = ({
+	type,
 	label,
 	investedValue,
 	marketValue,
@@ -25,8 +25,16 @@ export const Tile5 = ({
 }: Tile5Types) => {
 	const navigation = useNavigation<any>();
 	const onPressHandler = () => {
-		navigation.navigate(AllNavigationName.mutualFunds);
+		navigation.goBack();
 	};
+
+	const inLineStyles = StyleSheet.create({
+		header: {
+			flexDirection: 'row',
+			alignItems: 'center',
+			marginTop: type === Codes.publicProvidentFund ? 17 : 0,
+		},
+	});
 	return (
 		<LinearGradient colors={Colors.gradient3} style={styles.container}>
 			<ImageBackground
@@ -43,17 +51,29 @@ export const Tile5 = ({
 					</Pressable>
 				</View>
 				<View>
-					<View style={styles.header}>
-						<View style={styles.imageContainer}>
-							<Image source={imageSource} style={styles.image} />
-						</View>
+					<View style={inLineStyles.header}>
+						{type !== Codes.publicProvidentFund && (
+							<View style={styles.imageContainer}>
+								<Image source={imageSource} style={styles.image} />
+							</View>
+						)}
 						<Text style={styles.headerText}>{label}</Text>
 					</View>
 					<View style={styles.detailsContainer}>
 						<View style={styles.labelContainer}>
-							<Text style={styles.labelText}>Invested Value</Text>
-							<Text style={styles.labelText}>Market Value</Text>
-							<Text style={styles.labelText}>Gain/Loss</Text>
+							<Text style={styles.labelText}>
+								{type === Codes.publicProvidentFund
+									? 'Principal Amount'
+									: 'Invested Value'}
+							</Text>
+							<Text style={styles.labelText}>
+								{type === Codes.publicProvidentFund
+									? 'Total Amount'
+									: 'Market Value'}
+							</Text>
+							<Text style={styles.labelText}>
+								{type === Codes.publicProvidentFund ? 'Interest' : 'Gain/Loss'}
+							</Text>
 						</View>
 						<View style={styles.amountContainer}>
 							<View style={styles.amountSubContainer}>
@@ -101,10 +121,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		marginRight: 10,
 	},
-	header: {
-		flexDirection: 'row',
-		alignItems: 'center',
-	},
+
 	imageContainer: {
 		width: 60,
 		height: 60,

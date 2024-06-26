@@ -23,7 +23,7 @@ export const CommonViewUpdate = ({ location }: { location: string }) => {
 			{type === Codes.mutualFund ? (
 				<MutualFunds location={location} />
 			) : type === Codes.publicProvidentFund ? (
-				<Ppf />
+				<Ppf location={location} />
 			) : (
 				<LoadingOverlay message='Loading...' color={Colors.blue400} />
 			)}
