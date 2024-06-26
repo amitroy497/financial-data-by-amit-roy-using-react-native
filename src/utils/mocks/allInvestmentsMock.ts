@@ -364,7 +364,7 @@ export const allInvestmentsMock = [
 			},
 			{
 				code: 'fy18-19',
-				label: 'FY 2017-18',
+				label: 'FY 2018-19',
 				principalAmount: '22000.00',
 				totalAmount: '43153.00',
 				interest: '2589.00',

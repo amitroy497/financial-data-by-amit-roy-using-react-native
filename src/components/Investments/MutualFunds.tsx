@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { Fragment, useLayoutEffect, useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -17,7 +17,7 @@ import {
 	timeout,
 	updateInvestmentDetails,
 } from '../../utils';
-import { Button, Tile5, Tile6 } from '../UI';
+import { Tile5, Tile6, UpdateResetButtons } from '../UI';
 
 export const MutualFunds = ({ location }: { location: string }) => {
 	const dispatch = useDispatch();
@@ -188,29 +188,11 @@ export const MutualFunds = ({ location }: { location: string }) => {
 						)
 				)
 			)}
-			{isUpdate && (
-				<View style={styles.buttonContainer}>
-					<Button
-						onPress={resetHandler}
-						icons='Ionicons'
-						name='reload-circle-outline'
-						size={18}
-						color='black'
-					>
-						Reset
-					</Button>
-					<Button
-						onPress={updateHandler}
-						icons='MaterialIcons'
-						name='update'
-						size={18}
-						color='black'
-					>
-						Update
-					</Button>
-				</View>
-			)}
-
+			<UpdateResetButtons
+				isVisible={isUpdate}
+				resetHandler={resetHandler}
+				updateHandler={updateHandler}
+			/>
 			{mutualFundData?.details?.map((item: any) => (
 				<Fragment key={item?.code}>
 					<Tile6
@@ -231,13 +213,3 @@ export const MutualFunds = ({ location }: { location: string }) => {
 		</ScrollView>
 	);
 };
-
-const styles = StyleSheet.create({
-	buttonContainer: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		marginHorizontal: 20,
-		marginVertical: 30,
-	},
-});

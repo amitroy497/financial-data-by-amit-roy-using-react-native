@@ -35,6 +35,7 @@ export const Tile5 = ({
 			marginTop: type === Codes.publicProvidentFund ? 17 : 0,
 		},
 	});
+
 	return (
 		<LinearGradient colors={Colors.gradient3} style={styles.container}>
 			<ImageBackground

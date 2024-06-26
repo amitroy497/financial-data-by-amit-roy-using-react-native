@@ -8,11 +8,13 @@ import {
 	AsyncStorageName,
 	Codes,
 } from '../../constants';
-import { Tile5 } from '../UI';
+import { timeout } from '../../utils';
+import { Tile5, Tile8, UpdateResetButtons } from '../UI';
 
 export const Ppf = ({ location }: { location: string }) => {
 	const [ppfData, setPpfData] = useState<any>([]);
 	const [investmentCode, setInvestmentCode] = useState<string>('');
+	const [reset, setReset] = useState<boolean>(false);
 
 	const { investments: investmentData } = useSelector(
 		(s: any) => s.investments || {}
@@ -41,6 +43,16 @@ export const Ppf = ({ location }: { location: string }) => {
 	const isUpdate =
 		location === AllNavigationName.updateInvestments ? true : false;
 
+	const resetHandler = async () => {
+		setReset(true);
+		await timeout(1000);
+		setReset(false);
+	};
+
+	const updateHandler = () => {};
+
+	const getData = (val: any) => {};
+
 	return (
 		<ScrollView>
 			{AllInvestments?.map((investment: any) =>
@@ -60,6 +72,21 @@ export const Ppf = ({ location }: { location: string }) => {
 						)
 				)
 			)}
+			<UpdateResetButtons
+				isVisible={isUpdate}
+				resetHandler={resetHandler}
+				updateHandler={updateHandler}
+			/>
+			{ppfData?.details?.map((item: any) => (
+				<Fragment key={item?.code}>
+					<Tile8
+						code={item?.code}
+						isUpdate={isUpdate}
+						setData={getData}
+						reset={reset}
+					/>
+				</Fragment>
+			))}
 		</ScrollView>
 	);
 };

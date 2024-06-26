@@ -7,3 +7,4 @@ export * from './Inputs';
 export * from './LoadingOverlay';
 export * from './Logo';
 export * from './Tile';
+export * from './UpdateReset';
