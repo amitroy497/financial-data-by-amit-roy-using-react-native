@@ -151,7 +151,9 @@ export type Tile6Types = {
 };
 
 export type Tile8Types = {
-	code: string;
+	date: string;
+	principalAmount: string;
+	totalAmount: string;
 	isUpdate: boolean;
 	setData: (arg0: any) => void;
 	reset: boolean;

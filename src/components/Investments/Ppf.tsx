@@ -9,7 +9,7 @@ import {
 	Codes,
 } from '../../constants';
 import { timeout } from '../../utils';
-import { Tile5, Tile8, UpdateResetButtons } from '../UI';
+import { Tile5, Tile8, Tile9, UpdateResetButtons } from '../UI';
 
 export const Ppf = ({ location }: { location: string }) => {
 	const [ppfData, setPpfData] = useState<any>([]);
@@ -77,16 +77,20 @@ export const Ppf = ({ location }: { location: string }) => {
 				resetHandler={resetHandler}
 				updateHandler={updateHandler}
 			/>
-			{ppfData?.details?.map((item: any, index: number) => (
-				<Fragment key={index}>
-					<Tile8
-						code={item?.code}
-						isUpdate={isUpdate}
-						setData={getData}
-						reset={reset}
-					/>
-				</Fragment>
-			))}
+			<Tile9>
+				{ppfData?.details?.map((item: any, index: number) => (
+					<Fragment key={index}>
+						<Tile8
+							date={item?.date}
+							principalAmount={item?.principalAmount}
+							totalAmount={item?.totalAmount}
+							isUpdate={isUpdate}
+							setData={getData}
+							reset={reset}
+						/>
+					</Fragment>
+				))}
+			</Tile9>
 		</ScrollView>
 	);
 };

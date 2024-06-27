@@ -6,3 +6,4 @@ export * from './Tile5';
 export * from './Tile6';
 export * from './Tile7';
 export * from './Tile8';
+export * from './Tile9';
