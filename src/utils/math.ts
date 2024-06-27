@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export const SUM = (numberArray: any) => {
 	const sumArray = numberArray
 		.reduce((a: number, b: number) => a + b, 0)
@@ -37,4 +39,8 @@ export const ABSOLUTE = (value: string) => {
 	const num = +value;
 	const abs = Math.abs(num);
 	return abs.toFixed(2).toString();
+};
+
+export const formatDate = (date: string) => {
+	return dayjs(date).format('MMMM DD,YYYY');
 };
