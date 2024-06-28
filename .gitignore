@@ -35,4 +35,7 @@ yarn-error.*
 *.tsbuildinfo
 
 # vsCode
-./vsCode
+vsCode/
+
+# program data
+%ProgramData%/
