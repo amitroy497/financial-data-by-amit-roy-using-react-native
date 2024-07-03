@@ -1,10 +1,7 @@
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { AllNavigationName, Colors } from '../../constants';
-import { balanceSheetActions } from '../../store';
-import { fetchBalanceSheetDetails } from '../../utils';
 import { Tile1 } from '../UI';
 
 const WelcomeImage = require('../../images/db-welcome.png');
@@ -12,13 +9,7 @@ const WelcomeImage = require('../../images/db-welcome.png');
 export const WelcomeTile = () => {
 	const navigation = useNavigation();
 
-	const dispatch = useDispatch();
-
 	const handlePress = async () => {
-		const balanceSheetData = await fetchBalanceSheetDetails();
-		dispatch(
-			balanceSheetActions.setBalanceSheetDetails(balanceSheetData as never)
-		);
 		navigation.navigate(AllNavigationName.balanceSheet as never);
 	};
 

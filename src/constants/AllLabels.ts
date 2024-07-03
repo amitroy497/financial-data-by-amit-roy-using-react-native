@@ -58,4 +58,5 @@ export const AllLabels = {
 	october: 'October',
 	november: 'November',
 	december: 'December',
+	totalSavings: 'Total Savings',
 };
