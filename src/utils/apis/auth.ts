@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AuthenticateTypes, CreateloginTypes } from '../constants/types';
+import { AuthenticateTypes, CreateloginTypes } from '../../constants/types';
 
 const API_KEY = 'AIzaSyDtRPbZ98UH16FAfRLiVoI3zSetQd-xHns';
 

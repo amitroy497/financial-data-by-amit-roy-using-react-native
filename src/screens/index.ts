@@ -1,5 +1,4 @@
 export * from './BalanceSheetScreen';
-export * from './BalanceSheetScreen';
 export * from './DashboardScreen';
 export * from './ExpensesScreen';
 export * from './InvestmentsScreen';

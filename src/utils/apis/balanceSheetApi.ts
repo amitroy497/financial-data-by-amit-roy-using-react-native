@@ -1,7 +1,5 @@
 import axios from 'axios';
-
-const BACKEND_URL =
-	'https://financial-data-by-amit-r-5d93f-default-rtdb.firebaseio.com';
+import { BACKEND_URL } from './backendUrl';
 
 export const storeBalanceSheetDetails = async (balanceSheetData: any) => {
 	const response = await axios.post(
