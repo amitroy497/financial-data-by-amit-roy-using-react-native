@@ -7,11 +7,12 @@ import {
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useContext } from 'react';
 import { AllNavigationName, Colors } from '../../constants';
-import { DashboardScreen, ExpensesScreen, SavingsScreen } from '../../screens';
+import { DashboardScreen, ExpensesScreen } from '../../screens';
 import { AuthContext } from '../../store';
 import { IconButton } from '../UI';
 import { BalanceSheetNavigation } from './BalanceSheetNavigation';
 import { InvestmentsNavigation } from './Investments/InvestmentsNavigation';
+import { SavingsNavigation } from './Savings/SavingsNavigation';
 
 export const AuthenticatedDrawer = () => {
 	const Drawer = createDrawerNavigator();
@@ -91,7 +92,7 @@ export const AuthenticatedDrawer = () => {
 			/>
 			<Drawer.Screen
 				name={AllNavigationName.savings}
-				component={SavingsScreen}
+				component={SavingsNavigation}
 				options={{
 					drawerLabel: 'Savings',
 					drawerIcon: ({ color, size }) => (

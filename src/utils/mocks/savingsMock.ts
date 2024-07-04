@@ -12,6 +12,7 @@ export const savingsMock = [
 				totalSavings: '1000.00',
 				details: [
 					{
+						code: '1',
 						label: AllLabels.tataLargeMidRegMF,
 						total: '1000.00',
 						details: [
@@ -22,6 +23,7 @@ export const savingsMock = [
 						],
 					},
 					{
+						code: '2',
 						label: AllLabels.tataSmallRegMF,
 						total: '1000.00',
 						details: [
@@ -32,6 +34,7 @@ export const savingsMock = [
 						],
 					},
 					{
+						code: '3',
 						label: AllLabels.fiSD,
 						total: '3000.00',
 						details: [

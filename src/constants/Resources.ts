@@ -10,7 +10,7 @@ const SbiImage = require('../images/SBI.png');
 const TataImage = require('../images/TATA.png');
 const UtiImage = require('../images/UTI.png');
 
-export const AllInvestments = [
+export const Resources = [
 	{
 		mutualFund: [
 			{
@@ -75,7 +75,7 @@ export const AllInvestments = [
 			},
 			{
 				code: Codes.fy2020_21,
-				image: ParagImage,
+
 				gradient: Colors.gradient9,
 			},
 			{
@@ -84,7 +84,6 @@ export const AllInvestments = [
 			},
 			{
 				code: Codes.fy2022_23,
-				image: TataImage,
 				gradient: Colors.gradient7,
 			},
 			{
@@ -106,6 +105,102 @@ export const AllInvestments = [
 			{
 				code: Codes.fy2027_28,
 				gradient: Colors.gradient2,
+			},
+		],
+	},
+	{
+		savingsMonth: [
+			{
+				code: Codes.april,
+				gradient: Colors.gradient14,
+			},
+			{
+				code: Codes.may,
+				gradient: Colors.gradient12,
+			},
+			{
+				code: Codes.june,
+				gradient: Colors.gradient11,
+			},
+			{
+				code: Codes.july,
+				gradient: Colors.gradient10,
+			},
+			{
+				code: Codes.august,
+				gradient: Colors.gradient9,
+			},
+			{
+				code: Codes.september,
+				gradient: Colors.gradient8,
+			},
+			{
+				code: Codes.october,
+				gradient: Colors.gradient7,
+			},
+			{
+				code: Codes.november,
+				gradient: Colors.gradient6,
+			},
+			{
+				code: Codes.january,
+				gradient: Colors.gradient5,
+			},
+			{
+				code: Codes.february,
+				gradient: Colors.gradient4,
+			},
+			{
+				code: Codes.march,
+				gradient: Colors.gradient3,
+			},
+		],
+	},
+	{
+		savingsMonthlyDetails: [
+			{
+				code: '1',
+				gradient: Colors.gradient14,
+			},
+			{
+				code: '2',
+				gradient: Colors.gradient12,
+			},
+			{
+				code: '3',
+				gradient: Colors.gradient11,
+			},
+			{
+				code: '4',
+				gradient: Colors.gradient10,
+			},
+			{
+				code: '5',
+				gradient: Colors.gradient9,
+			},
+			{
+				code: '6',
+				gradient: Colors.gradient8,
+			},
+			{
+				code: '7',
+				gradient: Colors.gradient7,
+			},
+			{
+				code: '8',
+				gradient: Colors.gradient6,
+			},
+			{
+				code: '9',
+				gradient: Colors.gradient5,
+			},
+			{
+				code: '10',
+				gradient: Colors.gradient4,
+			},
+			{
+				code: '11',
+				gradient: Colors.gradient3,
 			},
 		],
 	},

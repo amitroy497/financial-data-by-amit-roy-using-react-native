@@ -3,7 +3,7 @@ import { useLayoutEffect } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Tile7 } from '../../components';
-import { AllInvestments, Codes } from '../../constants';
+import { Codes, Resources } from '../../constants';
 
 export const PPFScreen = () => {
 	const { investments: investmentData } = useSelector(
@@ -28,7 +28,7 @@ export const PPFScreen = () => {
 		<ScrollView style={styles.tilesContainer}>
 			{ppfData?.length > 0 &&
 				ppfData?.map((item: any) =>
-					AllInvestments?.map((investment: any) =>
+					Resources?.map((investment: any) =>
 						investment?.ppf?.map(
 							(i: any) =>
 								i?.code === item?.code && (

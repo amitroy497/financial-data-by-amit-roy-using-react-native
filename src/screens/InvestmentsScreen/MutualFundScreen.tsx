@@ -3,7 +3,7 @@ import { Fragment, useLayoutEffect } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Tile2 } from '../../components';
-import { AllInvestments, Codes } from '../../constants';
+import { Codes, Resources } from '../../constants';
 
 export const MutualFundScreen = () => {
 	const { investments: investmentData } = useSelector(
@@ -29,7 +29,7 @@ export const MutualFundScreen = () => {
 	return (
 		<ScrollView style={styles.tilesContainer}>
 			{mutualFundData?.map((item: any) =>
-				AllInvestments?.map((investment: any) =>
+				Resources?.map((investment: any) =>
 					investment?.mutualFund?.map(
 						(i: any) =>
 							i?.code === item?.code && (

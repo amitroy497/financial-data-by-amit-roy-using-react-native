@@ -3,10 +3,10 @@ import { Fragment, useLayoutEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import {
-	AllInvestments,
 	AllNavigationName,
 	AsyncStorageName,
 	Codes,
+	Resources,
 } from '../../constants';
 import { timeout } from '../../utils';
 import { Tile5, Tile8, Tile9, UpdateResetButtons } from '../UI';
@@ -55,7 +55,7 @@ export const Ppf = ({ location }: { location: string }) => {
 
 	return (
 		<ScrollView>
-			{AllInvestments?.map((investment: any) =>
+			{Resources?.map((investment: any) =>
 				investment?.ppf?.map(
 					(item: any) =>
 						item?.code === ppfData?.code && (

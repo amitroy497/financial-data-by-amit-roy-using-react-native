@@ -98,6 +98,11 @@ export type MpinLoginTypes = {
 	mpin: string;
 };
 
+export type ScreenTypes = {
+	route: any;
+	navigation: any;
+};
+
 export type Tile1Types = {
 	children: ReactNode;
 	image: any;
@@ -157,6 +162,14 @@ export type Tile8Types = {
 	isUpdate: boolean;
 	setData: (arg0: any) => void;
 	reset: boolean;
+};
+
+export type Tile10Types = {
+	header: string;
+	label: string;
+	amount: string;
+	gradient: any;
+	onPress: () => void;
 };
 
 export type UpdateResetButtonTypes = {

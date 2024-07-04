@@ -1,27 +1,33 @@
 {
-  "expo": {
-    "name": "financial-data-by-amit-roy-using-react",
-    "slug": "financial-data-by-amit-roy-using-react",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
-  }
+	"expo": {
+		"name": "financial-data-by-amit-roy-using-react",
+		"slug": "financial-data-by-amit-roy-using-react",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"background": "linear-gradient(223.82deg,#94009f -23.38%,#1d3181 104.9%)"
+		},
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"image": "./assets/finger-tapping-loading-animation.gif",
+				"backgroundColor": "#ffffff"
+			},
+			"package": "com.amitroy2024.financialdatabyamitroyusingreact"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "4c85ea4c-5818-42ee-a809-993d3f640093"
+			}
+		}
+	}
 }

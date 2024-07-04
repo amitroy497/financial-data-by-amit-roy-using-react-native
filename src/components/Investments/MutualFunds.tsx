@@ -5,10 +5,10 @@ import { Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-	AllInvestments,
 	AllNavigationName,
 	AsyncStorageName,
 	Codes,
+	Resources,
 } from '../../constants';
 import { investmentActions } from '../../store';
 import {
@@ -170,7 +170,7 @@ export const MutualFunds = ({ location }: { location: string }) => {
 
 	return (
 		<ScrollView>
-			{AllInvestments?.map((investment: any) =>
+			{Resources?.map((investment: any) =>
 				investment?.mutualFund?.map(
 					(item: any) =>
 						item?.code === mutualFundData?.code && (

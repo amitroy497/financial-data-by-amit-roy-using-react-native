@@ -2,11 +2,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useLayoutEffect } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { AllLabels, Colors } from '../../constants';
+import { AllLabels, AllNavigationName, Colors } from '../../constants';
+import { ScreenTypes } from '../../constants/types';
 import { savingsActions } from '../../store';
 import { fetchSavingsDetails } from '../../utils';
 
-export const SavingsScreen = () => {
+export const SavingsScreen = ({ navigation }: ScreenTypes) => {
 	const dispatch = useDispatch<any>();
 
 	const { savings: savingsData } = useSelector((s: any) => s.savings || {});
@@ -24,14 +25,16 @@ export const SavingsScreen = () => {
 		getSavingsData();
 	}, []);
 
-	const onPressHandler = () => {};
+	const onPressHandler = (code: string, details: any) => {
+		navigation.navigate(AllNavigationName.monthlySavings, { code, details });
+	};
 
 	return (
 		<ScrollView>
 			{savingsData?.data?.length > 0 &&
 				savingsData?.data?.map((item: any) => (
 					<Pressable
-						onPress={onPressHandler}
+						onPress={() => onPressHandler(item?.code, item?.details)}
 						key={item?.code}
 						style={styles.container}
 					>
