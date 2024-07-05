@@ -12,6 +12,7 @@ export const AllNavigationName = {
 	yearlySavings: 'YearlySavings',
 	monthlySavings: 'MonthlySavings',
 	monthlySavingsDetails: 'MonthlySavingsDetails',
+	addSavings: 'AddSavings',
 	mutualFunds: 'MutualFunds',
 	ppf: 'PublicProvidentFund',
 	nps: 'NPS',

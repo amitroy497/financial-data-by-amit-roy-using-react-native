@@ -7,9 +7,16 @@ import { ScreenTypes } from '../../constants/types';
 export const MonthlySavingsScreen = ({ route, navigation }: ScreenTypes) => {
 	const monthlySavings = route?.params?.details;
 
-	const onPressHandler = (code: string, details: any) => {
+	const onPressHandler = (
+		code: string,
+		label: string,
+		amount: string,
+		details: any
+	) => {
 		navigation.navigate(AllNavigationName.monthlySavingsDetails, {
 			code,
+			label,
+			amount,
 			details,
 		});
 	};
@@ -27,7 +34,14 @@ export const MonthlySavingsScreen = ({ route, navigation }: ScreenTypes) => {
 										label={AllLabels.totalSavings}
 										amount={item?.totalSavings}
 										gradient={month?.gradient}
-										onPress={() => onPressHandler(item?.code, item?.details)}
+										onPress={() =>
+											onPressHandler(
+												item?.code,
+												item?.label,
+												item?.totalSavings,
+												item?.details
+											)
+										}
 									/>
 								</Fragment>
 							)

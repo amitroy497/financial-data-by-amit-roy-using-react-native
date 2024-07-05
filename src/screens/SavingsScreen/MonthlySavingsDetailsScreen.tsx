@@ -11,7 +11,7 @@ export const MonthlySavingsDetailsScreen = ({ route }: ScreenTypes) => {
 
 	return (
 		<>
-			<Tile11 />
+			<Tile11 label={route?.params?.label} amount={route?.params?.amount} />
 			<ScrollView style={styles.rootContainer}>
 				<View style={styles.container}>
 					{monthlySavingsDetails?.map((item: any, index: number) => (

@@ -1,12 +1,18 @@
-import { AntDesign } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import { ImageBackground, Pressable, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../../constants';
+import { BackButton } from '../BackButton';
 
 const backgroundImage = require('../../../images/db-portfolio-head.png');
 
-export const Tile11 = () => {
+export const Tile11 = ({
+	label,
+	amount,
+}: {
+	label: string;
+	amount: string;
+}) => {
 	return (
 		<LinearGradient colors={Colors.gradient3} style={styles.container}>
 			<ImageBackground
@@ -14,13 +20,13 @@ export const Tile11 = () => {
 				resizeMode='cover'
 				style={styles.imageBackground}
 			>
-				<View style={styles.pressableContainer}>
-					<Pressable
-						android_ripple={{ color: Colors.white }}
-						// onPress={onPressHandler}
-					>
-						<AntDesign name='left' size={20} color={Colors.white} />
-					</Pressable>
+				<BackButton />
+				<View style={styles.itemContainer}>
+					<Text style={styles.label}>{label}</Text>
+					<View style={styles.amountContainer}>
+						<Text style={styles.amountLabel}>Total Amount</Text>
+						<Text style={styles.amount}>₹{amount}</Text>
+					</View>
 				</View>
 			</ImageBackground>
 		</LinearGradient>
@@ -34,11 +40,29 @@ const styles = StyleSheet.create({
 	imageBackground: {
 		flexDirection: 'row',
 	},
-	pressableContainer: {
-		width: 20,
-		height: 60,
-		justifyContent: 'center',
+	itemContainer: {
+		flex: 1,
+		paddingRight: 30,
+	},
+	label: {
+		fontSize: 24,
+		fontWeight: 'bold',
+		color: Colors.white,
+	},
+	amountContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 		alignItems: 'center',
-		marginRight: 10,
+		marginTop: 10,
+	},
+	amountLabel: {
+		color: Colors.white,
+		fontSize: 16,
+	},
+	amount: {
+		color: Colors.lime,
+		fontSize: 18,
+		fontWeight: 'bold',
+		marginLeft: 5,
 	},
 });

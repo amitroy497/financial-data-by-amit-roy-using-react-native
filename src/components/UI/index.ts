@@ -1,3 +1,4 @@
+export * from './BackButton';
 export * from './BalanceSheet';
 export * from './Button';
 export * from './FlatButton';

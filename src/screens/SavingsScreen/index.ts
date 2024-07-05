@@ -1,3 +1,4 @@
+export * from './AddSavingsScreen';
 export * from './MonthlySavingsDetailsScreen';
 export * from './MonthlySavingsScreen';
 export * from './SavingsScreen';

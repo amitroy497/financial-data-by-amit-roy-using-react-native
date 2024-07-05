@@ -5,7 +5,9 @@ import {
 	MaterialIcons,
 } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
 import { useContext } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { AllNavigationName, Colors } from '../../constants';
 import { DashboardScreen, ExpensesScreen } from '../../screens';
 import { AuthContext } from '../../store';
@@ -16,6 +18,8 @@ import { SavingsNavigation } from './Savings/SavingsNavigation';
 
 export const AuthenticatedDrawer = () => {
 	const Drawer = createDrawerNavigator();
+
+	const navigation = useNavigation<any>();
 
 	const authCtx = useContext(AuthContext);
 
@@ -65,14 +69,6 @@ export const AuthenticatedDrawer = () => {
 							size={size}
 						/>
 					),
-					headerRight: ({ tintColor }: any) => (
-						<IconButton
-							icon='exit'
-							color={tintColor}
-							size={24}
-							onPress={authCtx.logout}
-						/>
-					),
 				}}
 			/>
 			<Drawer.Screen
@@ -98,6 +94,26 @@ export const AuthenticatedDrawer = () => {
 					drawerIcon: ({ color, size }) => (
 						<MaterialIcons name='savings' color={color} size={size} />
 					),
+					headerRight: ({ tintColor }: any) => (
+						<View style={styles.container}>
+							<View style={styles.iconContainer}>
+								<IconButton
+									icon='add-circle-outline'
+									color={tintColor}
+									size={24}
+									onPress={() =>
+										navigation.navigate(AllNavigationName.addSavings)
+									}
+								/>
+							</View>
+							<IconButton
+								icon='exit'
+								color={tintColor}
+								size={24}
+								onPress={authCtx.logout}
+							/>
+						</View>
+					),
 				}}
 			/>
 			<Drawer.Screen
@@ -113,3 +129,13 @@ export const AuthenticatedDrawer = () => {
 		</Drawer.Navigator>
 	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		flexDirection: 'row',
+		alignItems: 'center',
+	},
+	iconContainer: {
+		marginRight: 20,
+	},
+});
